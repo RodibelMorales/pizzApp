@@ -27542,3 +27542,19 @@ page-menu-pizzeria ion-label {
   text-overflow: ellipsis;
   white-space: normal;
 }
+
+page-perfil .card h2 {
+  margin: 2px 0;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #222;
+}
+
+page-perfil .border-bottom-profileInfo {
+  border-bottom: #b1b9b8 solid 1px;
+  margin-top: 20px;
+}
+
+page-perfil .bloque-info {
+  margin-top: 20px;
+}

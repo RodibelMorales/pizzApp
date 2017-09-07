@@ -10,6 +10,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 /*Importan nuevas las paginas nuevas */
 import {PizzeriasPage} from '../pages/pizzerias/pizzerias';
 import {MenuPizzeriaPage} from '../pages/menu-pizzeria/menu-pizzeria';
+import {PerfilPage} from '../pages/perfil/perfil';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -21,7 +22,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     TabsPage,
     PizzeriasPage,
-    MenuPizzeriaPage
+    MenuPizzeriaPage,
+    PerfilPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +37,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     TabsPage,
     PizzeriasPage,
-    MenuPizzeriaPage
+    MenuPizzeriaPage,
+    PerfilPage
   ],
   providers: [
     StatusBar,
