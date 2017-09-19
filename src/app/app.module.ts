@@ -8,9 +8,11 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 /*Importan nuevas las paginas nuevas */
-import {PizzeriasPage} from '../pages/pizzerias/pizzerias';
+import {PizzeriasPage}    from '../pages/pizzerias/pizzerias';
 import {MenuPizzeriaPage} from '../pages/menu-pizzeria/menu-pizzeria';
-import {PerfilPage} from '../pages/perfil/perfil';
+import {PerfilPage}       from '../pages/perfil/perfil';
+import {LoginPage}        from '../pages/login/login';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -23,7 +25,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     PizzeriasPage,
     MenuPizzeriaPage,
-    PerfilPage
+    PerfilPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -38,7 +41,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     PizzeriasPage,
     MenuPizzeriaPage,
-    PerfilPage
+    PerfilPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
