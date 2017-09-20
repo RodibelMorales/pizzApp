@@ -8,14 +8,20 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 /*Importan nuevas las paginas nuevas */
-import {PizzeriasPage} from '../pages/pizzerias/pizzerias';
+import {PizzeriasPage}    from '../pages/pizzerias/pizzerias';
 import {MenuPizzeriaPage} from '../pages/menu-pizzeria/menu-pizzeria';
+<<<<<<< HEAD
 import {PerfilPage} from '../pages/perfil/perfil';
 /*Dependencias para usar firebase*/
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireDatabaseModule} from  'angularfire2/database';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {firebaseConfig} from '../enviroment/firebase-config';
+=======
+import {PerfilPage}       from '../pages/perfil/perfil';
+import {LoginPage}        from '../pages/login/login';
+
+>>>>>>> 45a9c1f40a1d6bb8046f347c86ba8031a3390a5a
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -28,7 +34,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     PizzeriasPage,
     MenuPizzeriaPage,
-    PerfilPage
+    PerfilPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -46,7 +53,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     PizzeriasPage,
     MenuPizzeriaPage,
-    PerfilPage
+    PerfilPage,
+    LoginPage
   ],
   providers: [
     StatusBar,

@@ -1,13 +1,21 @@
 webpackJsonp([1],{
 
+<<<<<<< HEAD
 /***/ 269:
+=======
+/***/ 270:
+>>>>>>> 45a9c1f40a1d6bb8046f347c86ba8031a3390a5a
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PerfilPageModule", function() { return PerfilPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
+=======
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
+>>>>>>> 45a9c1f40a1d6bb8046f347c86ba8031a3390a5a
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__perfil__ = __webpack_require__(100);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;

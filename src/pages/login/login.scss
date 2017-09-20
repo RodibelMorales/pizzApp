@@ -1,0 +1,24 @@
+$widthBtnRegistrer: 48%;
+page-login {
+    ion-item{
+        padding-left: 0px !important;
+    }
+    .btnLogin{
+        background: #4CAF50;
+    }
+    .btnLoginFacebook{
+        background: #4267b2;
+        width: $widthBtnRegistrer;
+    }
+    .btnLoginMail{
+        background: #424242;
+        width: $widthBtnRegistrer;
+    }
+    .logo-principal {
+        width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    
+}
