@@ -5,4 +5,5 @@ import * as firebase from 'firebase/app';
 import {firebaseConfig} from '../enviroment/firebase-config';
   //var config = {};
   firebase.initializeApp(firebaseConfig);
+  firebase.auth().getRedirectResult().then(result=>console.log(result));
 platformBrowserDynamic().bootstrapModule(AppModule);

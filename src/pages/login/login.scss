@@ -15,10 +15,11 @@ page-login {
         width: $widthBtnRegistrer;
     }
     .logo-principal {
-        width: 200px;
+        width: 250px;
         margin-left: auto;
         margin-right: auto;
-    }
-    
-    
+    }  
+    .espacioRegistros{position: relative;top: 80px;}
+    .titleregistro{font-size: 12pt;color: #8a8a8a;}
+    .btnlogin{margin-top: 20px;background: #4CAF50;}
 }

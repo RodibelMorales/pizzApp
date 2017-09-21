@@ -18,18 +18,19 @@
       <ion-label floating>Password</ion-label>
       <ion-input type="password" [(ngModel)]="password"></ion-input>
     </ion-item>
-    <button ion-button block medium color="secondary" (click)="crearCuentaEmail()">INICIAR</button>
+    <button ion-button block medium color="secondary" (click)="iniciarSesion()" class="btnlogin">INICIAR AHORA</button>
   </ion-list>
   
-  <ion-list>
-    <h4>Registrarme con</h4>
-      <button ion-button icon-start inline-block small class="btnLoginFacebook" (click)="crearCuentaFb()">
+  <ion-list class="espacioRegistros">
+    <h1>Registrarme</h1>
+      <button ion-button icon-start inline-block   class="btnLoginFacebook" (click)="crearCuentaFb()">
         <ion-icon name='logo-facebook'></ion-icon>
         Facebook
       </button>
-      <button ion-button icon-start inline-block small class="btnLoginMail" (click)="crearCuentaEmail()">
+      <button ion-button icon-start inline-block   class="btnLoginMail" [navPush]="registrologin">
         <ion-icon name='mail'></ion-icon>
         Correo
       </button>
+
   </ion-list>
 </ion-content>

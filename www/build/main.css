@@ -27543,9 +27543,24 @@ page-login .btnLoginMail {
 }
 
 page-login .logo-principal {
-  width: 200px;
+  width: 250px;
   margin-left: auto;
   margin-right: auto;
+}
+
+page-login .espacioRegistros {
+  position: relative;
+  top: 80px;
+}
+
+page-login .titleregistro {
+  font-size: 12pt;
+  color: #8a8a8a;
+}
+
+page-login .btnlogin {
+  margin-top: 20px;
+  background: #4CAF50;
 }
 
 page-menu-pizzeria ion-icon {
@@ -27581,4 +27596,8 @@ page-perfil .border-bottom-profileInfo {
 
 page-perfil .bloque-info {
   margin-top: 20px;
+}
+
+page-registro-login ion-item {
+  padding-left: 0px !important;
 }
