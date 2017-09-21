@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {AngularFireAuth} from 'angularfire2/auth';
 
 /**
  * Generated class for the LoginPage page.
@@ -14,19 +15,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  usuario :string;
+  email :string;
   password :string;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private angularFire:AngularFireAuth) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private angularFire: AngularFireAuth) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+    console.log('ionViewDidLoad LoginPage');  
   }
   crearCuentaFb(){
     alert("soy la funcion para login con FB")
   }
   crearCuentaEmail(){
-    alert("hola");
+    this.angularFire.auth.createUserWithEmailAndPassword(this.email, this.password);
   }
 
 }
