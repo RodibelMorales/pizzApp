@@ -29,6 +29,6 @@ export class LoginPage {
     this.auth.createUserWithFacebook(this.email, this.password);
   }
   iniciarSesion(){
-    alert("Aqui voy a iniciar sesion");
+    this.auth.signInWithEmailAndPassword(this.email, this.password);
   }
 }
