@@ -2,12 +2,10 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 /*Importando paginas  */
 import {MenuPizzeriaPage} from '../menu-pizzeria/menu-pizzeria';
-/**
- * Generated class for the PizzeriasPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { AboutPage }   from '../about/about';
+import { ContactPage } from '../contact/contact';
+import { HomePage }    from '../home/home';
+import {PerfilPage}    from '../perfil/perfil';
 
 @IonicPage()
 @Component({
@@ -16,6 +14,9 @@ import {MenuPizzeriaPage} from '../menu-pizzeria/menu-pizzeria';
 })
 export class PizzeriasPage {
   menupizzeria=MenuPizzeriaPage;
+  tab1Root = PizzeriasPage;
+  tab2Root = AboutPage;
+  tab3Root = PerfilPage;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

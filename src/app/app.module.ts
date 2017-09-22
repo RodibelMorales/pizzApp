@@ -2,11 +2,10 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-
+import { NavController } from 'ionic-angular';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
 /*Importan nuevas las paginas nuevas */
 import {PizzeriasPage}    from '../pages/pizzerias/pizzerias';
 import {MenuPizzeriaPage} from '../pages/menu-pizzeria/menu-pizzeria';
@@ -30,7 +29,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage,
     PizzeriasPage,
     MenuPizzeriaPage,
     PerfilPage,
@@ -50,7 +48,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage,
     PizzeriasPage,
     MenuPizzeriaPage,
     PerfilPage,

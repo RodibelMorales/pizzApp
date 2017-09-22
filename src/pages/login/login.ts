@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Authentication } from './../../servicios/authentication';
 import {RegistroLoginPage} from '../registro-login/registro-login';
-
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
 /**
  * Generated class for the LoginPage page.
  *
@@ -19,7 +20,7 @@ export class LoginPage {
   email :string;
   password :string;
   registrologin=RegistroLoginPage;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: Authentication) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: Authentication,private angularAuth :AngularFireAuth) {
   }
 
   ionViewDidLoad() {
@@ -29,6 +30,19 @@ export class LoginPage {
     this.auth.createUserWithFacebook(this.email, this.password);
   }
   iniciarSesion(){
-    this.auth.signInWithEmailAndPassword(this.email, this.password);
+    this.signInWithEmailAndPassword(this.email, this.password);
   }
+  signInWithEmailAndPassword(email,password){
+    try{
+        const result =this.angularAuth.auth.signInWithEmailAndPassword(email,password);
+        if(result){
+          this.navCtrl.setRoot('TabsPage');
+        }else{
+          alert("Upps verifica tus datos");
+        }
+    }catch(e){
+        console.log(e);
+    }
+}
+  
 }
