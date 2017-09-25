@@ -32,7 +32,7 @@ export class LoginPage {
   iniciarSesion(){
     this.signInWithEmailAndPassword(this.email, this.password);
   }
-  signInWithEmailAndPassword(email,password){
+  async signInWithEmailAndPassword(email,password){
     try{
         const result =this.angularAuth.auth.signInWithEmailAndPassword(email,password);
         if(result){
@@ -41,7 +41,7 @@ export class LoginPage {
           alert("Upps verifica tus datos");
         }
     }catch(e){
-        console.log(e);
+        console.error(e);
     }
 }
   

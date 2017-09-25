@@ -1,3 +1,4 @@
+import { LoginPage } from './../login/login';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Authentication } from './../../servicios/authentication';
@@ -24,8 +25,14 @@ export class RegistroLoginPage {
     console.log('ionViewDidLoad RegistroLoginPage');
   }
   /*Funcion para registrarce con un email*/
-  crearCuentaEmail(){
-      this.auth.createUserWithEmailAndPassword(this.email, this.password);
-
+  async crearCuentaEmail(){
+    try{
+      const result =this.auth.createUserWithEmailAndPassword(this.email, this.password);
+      if(result){
+        this.navCtrl.pop();
+      }else{}
+    }catch(e){
+      console.error(e);
+    }
   }
 }
