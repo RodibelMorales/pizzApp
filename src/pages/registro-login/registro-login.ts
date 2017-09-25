@@ -27,10 +27,12 @@ export class RegistroLoginPage {
   /*Funcion para registrarce con un email*/
   async crearCuentaEmail(){
     try{
-      const result =this.auth.createUserWithEmailAndPassword(this.email, this.password);
+      const result = await this.auth.createUserWithEmailAndPassword(this.email, this.password);
       if(result){
         this.navCtrl.pop();
-      }else{}
+      }else{
+        alert("ocurrio un error, por favor intentalo nuevamente");
+      }
     }catch(e){
       console.error(e);
     }

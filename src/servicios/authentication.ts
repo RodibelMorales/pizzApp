@@ -23,5 +23,8 @@ export class Authentication{
         .then(result =>{
             return firebase.auth().getRedirectResult;
         });
-    } 
+    }
+    checkSesion(){
+        
+    }
 }

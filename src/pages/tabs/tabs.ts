@@ -1,5 +1,5 @@
 import { Component }   from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import { IonicPage,NavController,NavParams,ToastController } from 'ionic-angular';
 import { AboutPage }   from '../about/about';
 import { ContactPage } from '../contact/contact';
 import { HomePage }    from '../home/home';
@@ -18,7 +18,23 @@ export class TabsPage {
   tab2Root = AboutPage;
   tab3Root = PerfilPage;
 
-  constructor() {
+  constructor(private auth:AngularFireAuth,private toast:ToastController,public navCtrl:NavController,public navParams: NavParams) {
 
+  }
+  ionViewWillLoad(){
+    try{
+      this.auth.authState.subscribe(data=>{
+        if(data && data.email && data.uid){
+          this.toast.create({
+            message: `Bienvenido ${data.email}`,
+            duration:5000
+          }).present();
+        }else{
+          alert("Error al iniciar sesion");     
+        }
+      });
+    }catch(e){
+      console.error("ERROR DE SESION");
+    }
   }
 }
