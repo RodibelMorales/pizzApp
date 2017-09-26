@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController} from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Authentication } from './../../servicios/authentication';
 import {RegistroLoginPage} from '../registro-login/registro-login';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -20,7 +21,13 @@ export class LoginPage {
   email :string;
   password :string;
   registrologin=RegistroLoginPage;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController, private auth: Authentication,private angularAuth :AngularFireAuth) {
+  validaForm : FormGroup;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController,
+              private auth: Authentication,private angularAuth :AngularFireAuth,public formBuild:FormBuilder) {
+    this.validaForm=this.formBuild.group({
+      email   :['',[Validators.required,Validators.email]],
+      password:['',[Validators.required,Validators.pattern(/^[a-z0-9_-]{6,18}$/)]],
+    });
   }
 
   ionViewDidLoad() {
@@ -30,7 +37,7 @@ export class LoginPage {
     this.auth.createUserWithFacebook(this.email, this.password);
   }
   iniciarSesion(){
-    this.signInWithEmailAndPassword(this.email, this.password);
+    this.signInWithEmailAndPassword(this.validaForm.value.email, this.validaForm.value.password);
   }
   async signInWithEmailAndPassword(email,password){
     try{
