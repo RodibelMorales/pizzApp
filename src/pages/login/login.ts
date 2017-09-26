@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController} from 'ionic-angular';
 import { Authentication } from './../../servicios/authentication';
 import {RegistroLoginPage} from '../registro-login/registro-login';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -20,7 +20,7 @@ export class LoginPage {
   email :string;
   password :string;
   registrologin=RegistroLoginPage;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private auth: Authentication,private angularAuth :AngularFireAuth) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController, private auth: Authentication,private angularAuth :AngularFireAuth) {
   }
 
   ionViewDidLoad() {
@@ -34,12 +34,18 @@ export class LoginPage {
   }
   async signInWithEmailAndPassword(email,password){
     try{
-        const result =this.angularAuth.auth.signInWithEmailAndPassword(email,password);
-        if(result){
+        this.angularAuth.auth.signInWithEmailAndPassword(email,password)
+        .then(data =>{
           this.navCtrl.setRoot('TabsPage');
-        }else{
-          alert("Upps verifica tus datos");
-        }
+        })
+        .catch(error=>{
+          let alert = this.alertCtrl.create({
+            title: 'Upps!',
+            subTitle: 'Por favor verifica tu usuario y/o contraseña',
+            buttons: ['OK']
+          });
+          alert.present();
+        });
     }catch(e){
         console.error(e);
     }
