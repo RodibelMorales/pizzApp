@@ -22,20 +22,6 @@ export class PizzeriasPage {
   }
 
   ionViewDidLoad() {
-    try{
-      this.auth.authState.subscribe(data=>{
-        if(data && data.email && data.uid){
-          this.toast.create({
-            message: `Bienvenido ${data.email}`,
-            duration:5000
-          }).present();
-        }else{
-          alert("Error al iniciar sesion");     
-        }
-      });
-    }catch(e){
-      console.error("ERROR DE SESION");
-    }
+    console.log("vista del listado pizza");
   }
-
 }
