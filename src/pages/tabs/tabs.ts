@@ -29,8 +29,6 @@ export class TabsPage {
             message: `Bienvenido ${data.email}`,
             duration:5000
           }).present();
-        }else{
-          alert("Error al iniciar sesion");     
         }
       });
     }catch(e){
