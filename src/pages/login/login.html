@@ -9,18 +9,29 @@
   <ion-avatar item-start>
     <img src="assets/imgs/logo-principal.png" class="logo-principal">
   </ion-avatar>
-  <ion-list>
-    <ion-item>
-      <ion-label floating>Usuario</ion-label>
-      <ion-input type="text" [(ngModel)]="email"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Password</ion-label>
-      <ion-input type="password" [(ngModel)]="password"></ion-input>
-    </ion-item>
-    <button ion-button block medium color="secondary" (click)="iniciarSesion()" class="btnlogin">INICIAR AHORA</button>
-  </ion-list>
-  
+  <form [formGroup]="validaForm" (ngSubmit)="iniciarSesion()" novalidate>
+    <ion-list>
+      <!--Bloque para ingresar el usuario-->
+      <ion-item>
+        <ion-label floating>Usuario</ion-label>
+        <ion-input type="text" [(ngModel)]="email" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="validaForm.get('email').errors && validaForm.get('email').dirty">
+        <p color="danger" ion-text *ngIf="validaForm.get('email').hasError('required')">campo obligatorio</p>
+        <p color="danger" ion-text *ngIf="validaForm.get('email').hasError('email')">ingresa un correo valido</p>
+      </ion-item>
+      <!--Bloque para ingresar el password-->
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" [(ngModel)]="password" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="validaForm.get('password').errors && validaForm.get('password').dirty">
+          <p color="danger" ion-text *ngIf="validaForm.get('password').hasError('required')">campo obligatorio</p>
+          <p color="danger" ion-text *ngIf="validaForm.get('password').hasError('pattern')">contraseña poco segura</p>
+        </ion-item>
+      <button ion-button block medium color="secondary"  class="btnlogin">INICIAR AHORA</button>
+    </ion-list>
+  </form>
   <ion-list class="espacioRegistros">
     <h1>Registrarme</h1>
       <button ion-button icon-start inline-block   class="btnLoginFacebook" (click)="crearCuentaFb()">
