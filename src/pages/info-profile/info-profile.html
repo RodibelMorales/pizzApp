@@ -1,0 +1,40 @@
+<!--
+  Generated template for the InfoProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Informacion de tu perfil</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <!--<form [formGroup]="validaForm" (ngSubmit)="iniciarSesion()" novalidate>-->
+    <ion-list>
+      <!--Bloque para ingresar el usuario-->
+      <ion-item>
+        <ion-label floating>Nombre Completo</ion-label>
+        <ion-input type="text" [(ngModel)]="nombre_completo" formControlName="nombre_completo"></ion-input>
+      </ion-item>
+      <!--<ion-item *ngIf="validaForm.get('email').errors && validaForm.get('email').dirty">
+        <p color="danger" ion-text *ngIf="validaForm.get('email').hasError('required')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>
+        <p color="danger" ion-text *ngIf="validaForm.get('email').hasError('email')"><ion-icon name="close-circle"></ion-icon> ingresa un correo valido</p>
+      </ion-item>-->
+      <!--Bloque para ingresar el password-->
+      <ion-item>
+        <ion-label floating>Telefono</ion-label>
+        <ion-input type="password" [(ngModel)]="telefono" formControlName="telefono"></ion-input>
+      </ion-item>
+      <!--<ion-item *ngIf="validaForm.get('password').errors && validaForm.get('password').dirty">
+          <p color="danger" ion-text *ngIf="validaForm.get('password').hasError('required')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>
+        </ion-item>-->
+      <!--Bloque para ingresar la direccion-->
+      <ion-item>
+        <ion-label floating>Dirección</ion-label>
+        <ion-input type="password" [(ngModel)]="direccion" formControlName="direccion"></ion-input>
+      </ion-item>
+      <button ion-button block medium color="secondary"  class="btnlogin">GUARDAR</button>
+    </ion-list>
+  <!--</form>-->
+</ion-content>
