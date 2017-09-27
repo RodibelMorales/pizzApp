@@ -49,7 +49,7 @@ export class LoginPage {
     try{
         this.angularAuth.auth.signInWithEmailAndPassword(email,password)
         .then(data =>{
-          this.navCtrl.setRoot('TabsPage');
+          this.navCtrl.setRoot('InfoProfilePage');
         })
         .catch(error=>{
           let alert = this.alertCtrl.create({
