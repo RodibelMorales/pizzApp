@@ -27,6 +27,7 @@ export class InfoProfilePage {
     this.validaInfoProfile=this.formBuild.group({
       img_profile   :['',[Validators.required]],
       nombre_completo:['',[Validators.required,Validators.pattern('[a-zA-Z ]*')]],
+      telefono:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10),]]
     });  
   }
 
