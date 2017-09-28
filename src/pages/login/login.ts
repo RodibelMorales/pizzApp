@@ -5,13 +5,6 @@ import { Authentication } from './../../servicios/authentication';
 import {RegistroLoginPage} from '../registro-login/registro-login';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
-/**
- * Generated class for the LoginPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-login',

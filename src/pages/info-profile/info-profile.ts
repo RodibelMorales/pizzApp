@@ -25,9 +25,9 @@ export class InfoProfilePage {
   validaInfoProfile:FormGroup;
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController,public database:AngularFireDatabase,public formBuild:FormBuilder) {
     this.validaInfoProfile=this.formBuild.group({
-      img_profile   :['',[Validators.required]],
       nombre_completo:['',[Validators.required,Validators.pattern('[a-zA-Z ]*')]],
-      telefono:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10),]]
+      telefono:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10),]],
+      direccion:['',[Validators.required]]
     });  
   }
 

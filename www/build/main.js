@@ -1,4 +1,4 @@
-webpackJsonp([6],{
+webpackJsonp([7],{
 
 /***/ 138:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -148,11 +148,7 @@ var RegistroLoginPage = (function () {
 RegistroLoginPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-<<<<<<< HEAD
-        selector: 'page-registro-login',template:/*ion-inline-start:"C:\xampp\htdocs\pizzApp\src\pages\registro-login\registro-login.html"*/'<!--\n\n  Generated template for the RegistroLoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Registrarme</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <ion-list>\n\n        <ion-item>\n\n          <ion-label floating>Usuario</ion-label>\n\n          <ion-input type="text" [(ngModel)]="email"></ion-input>\n\n        </ion-item>\n\n        <ion-item>\n\n          <ion-label floating>Password</ion-label>\n\n          <ion-input type="password" [(ngModel)]="password"></ion-input>\n\n        </ion-item>\n\n        <button ion-button block medium color="secondary" (click)="crearCuentaEmail()" class="btnlogin">REGISTRARME AHORA</button>\n\n      </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\pizzApp\src\pages\registro-login\registro-login.html"*/,
-=======
-        selector: 'page-registro-login',template:/*ion-inline-start:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\registro-login\registro-login.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Registrarme</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content padding>\n  <form [formGroup]="validaFormRegistro" (ngSubmit)="crearCuentaEmail()" novalidate>\n    <ion-list>\n        <!--Bloque para optener el usuario-->\n        <ion-item>\n          <ion-label floating>Usuario</ion-label>\n          <ion-input type="text" [(ngModel)]="email" formControlName="email"></ion-input>\n        </ion-item>\n        <ion-item *ngIf="validaFormRegistro.get(\'email\').errors && validaFormRegistro.get(\'email\').dirty">\n            <p color="danger" ion-text *ngIf="validaFormRegistro.get(\'email\').hasError(\'required\')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>\n            <p color="danger" ion-text *ngIf="validaFormRegistro.get(\'email\').hasError(\'email\')"><ion-icon name="close-circle"></ion-icon> ingresa un correo valido</p>\n        </ion-item>\n        <!--Bloque para optener el password-->\n        <ion-item>\n          <ion-label floating>Password</ion-label>\n          <ion-input type="password" [(ngModel)]="password" formControlName="password"></ion-input>\n        </ion-item>\n        <ion-item *ngIf="validaFormRegistro.get(\'password\').errors && validaFormRegistro.get(\'password\').dirty">\n          <p color="danger" ion-text *ngIf="validaFormRegistro.get(\'password\').hasError(\'required\')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>\n          <p color="danger" ion-text *ngIf="validaFormRegistro.get(\'password\').hasError(\'pattern\')"><ion-icon name="close-circle"></ion-icon> contraseña poco segura</p>\n        </ion-item>\n        <button ion-button block medium color="secondary"  class="btnlogin" [disabled]="validaFormRegistro.invalid">REGISTRARME AHORA</button>\n    </ion-list>\n  </form>\n</ion-content>\n'/*ion-inline-end:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\registro-login\registro-login.html"*/,
->>>>>>> e9c5c6fc6bb266a5a5f5b15a9c4990df392bfe51
+        selector: 'page-registro-login',template:/*ion-inline-start:"C:\xampp\htdocs\pizzApp\src\pages\registro-login\registro-login.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Registrarme</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n  <form [formGroup]="validaFormRegistro" (ngSubmit)="crearCuentaEmail()" novalidate>\n\n    <ion-list>\n\n        <!--Bloque para optener el usuario-->\n\n        <ion-item>\n\n          <ion-label floating>Usuario</ion-label>\n\n          <ion-input type="text" [(ngModel)]="email" formControlName="email"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="validaFormRegistro.get(\'email\').errors && validaFormRegistro.get(\'email\').dirty">\n\n            <p color="danger" ion-text *ngIf="validaFormRegistro.get(\'email\').hasError(\'required\')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>\n\n            <p color="danger" ion-text *ngIf="validaFormRegistro.get(\'email\').hasError(\'email\')"><ion-icon name="close-circle"></ion-icon> ingresa un correo valido</p>\n\n        </ion-item>\n\n        <!--Bloque para optener el password-->\n\n        <ion-item>\n\n          <ion-label floating>Password</ion-label>\n\n          <ion-input type="password" [(ngModel)]="password" formControlName="password"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="validaFormRegistro.get(\'password\').errors && validaFormRegistro.get(\'password\').dirty">\n\n          <p color="danger" ion-text *ngIf="validaFormRegistro.get(\'password\').hasError(\'required\')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>\n\n          <p color="danger" ion-text *ngIf="validaFormRegistro.get(\'password\').hasError(\'pattern\')"><ion-icon name="close-circle"></ion-icon> contraseña poco segura</p>\n\n        </ion-item>\n\n        <button ion-button block medium color="secondary"  class="btnlogin" [disabled]="validaFormRegistro.invalid">REGISTRARME AHORA</button>\n\n    </ion-list>\n\n  </form>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\pizzApp\src\pages\registro-login\registro-login.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
 ], RegistroLoginPage);
@@ -222,12 +218,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
-/**
- * Generated class for the LoginPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 var LoginPage = (function () {
     function LoginPage(navCtrl, navParams, alertCtrl, auth, angularAuth, formBuild) {
         this.navCtrl = navCtrl;
@@ -281,14 +271,14 @@ var LoginPage = (function () {
 LoginPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-<<<<<<< HEAD
-        selector: 'page-login',template:/*ion-inline-start:"C:\xampp\htdocs\pizzApp\src\pages\login\login.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n<ion-content padding>\n\n  <ion-avatar item-start>\n\n    <img src="assets/imgs/logo-principal.png" class="logo-principal">\n\n  </ion-avatar>\n\n  <form [formGroup]="validaForm" (ngSubmit)="iniciarSesion()" novalidate>\n\n    <ion-list>\n\n      <!--Bloque para ingresar el usuario-->\n\n      <ion-item>\n\n        <ion-label floating>Usuario</ion-label>\n\n        <ion-input type="text" [(ngModel)]="email" formControlName="email"></ion-input>\n\n      </ion-item>\n\n      <ion-item *ngIf="validaForm.get(\'email\').errors && validaForm.get(\'email\').dirty">\n\n        <p color="danger" ion-text *ngIf="validaForm.get(\'email\').hasError(\'required\')">campo obligatorio</p>\n\n        <p color="danger" ion-text *ngIf="validaForm.get(\'email\').hasError(\'email\')">ingresa un correo valido</p>\n\n      </ion-item>\n\n      <!--Bloque para ingresar el password-->\n\n      <ion-item>\n\n        <ion-label floating>Password</ion-label>\n\n        <ion-input type="password" [(ngModel)]="password" formControlName="password"></ion-input>\n\n      </ion-item>\n\n      <ion-item *ngIf="validaForm.get(\'password\').errors && validaForm.get(\'password\').dirty">\n\n          <p color="danger" ion-text *ngIf="validaForm.get(\'password\').hasError(\'required\')">campo obligatorio</p>\n\n          <p color="danger" ion-text *ngIf="validaForm.get(\'password\').hasError(\'pattern\')">contraseña poco segura</p>\n\n        </ion-item>\n\n      <button ion-button block medium color="secondary"  class="btnlogin">INICIAR AHORA</button>\n\n    </ion-list>\n\n  </form>\n\n  <ion-list class="espacioRegistros">\n\n    <h1>Registrarme</h1>\n\n      <button ion-button icon-start inline-block   class="btnLoginFacebook" (click)="crearCuentaFb()">\n\n        <ion-icon name=\'logo-facebook\'></ion-icon>\n\n        Facebook\n\n      </button>\n\n      <button ion-button icon-start inline-block   class="btnLoginMail" [navPush]="registrologin">\n\n        <ion-icon name=\'mail\'></ion-icon>\n\n        Correo\n\n      </button>\n\n\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\pizzApp\src\pages\login\login.html"*/,
-=======
-        selector: 'page-login',template:/*ion-inline-start:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\login\login.html"*/'\n\n<ion-content padding>\n\n  <ion-avatar item-start>\n\n    <img src="assets/imgs/logo-principal.png" class="logo-principal">\n\n  </ion-avatar>\n\n  <form [formGroup]="validaForm" (ngSubmit)="iniciarSesion()" novalidate>\n\n    <ion-list>\n\n      <!--Bloque para ingresar el usuario-->\n\n      <ion-item>\n\n        <ion-label floating>Usuario</ion-label>\n\n        <ion-input type="text" [(ngModel)]="email" formControlName="email"></ion-input>\n\n      </ion-item>\n\n      <ion-item *ngIf="validaForm.get(\'email\').errors && validaForm.get(\'email\').dirty">\n\n        <p color="danger" ion-text *ngIf="validaForm.get(\'email\').hasError(\'required\')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>\n\n        <p color="danger" ion-text *ngIf="validaForm.get(\'email\').hasError(\'email\')"><ion-icon name="close-circle"></ion-icon> ingresa un correo valido</p>\n\n      </ion-item>\n\n      <!--Bloque para ingresar el password-->\n\n      <ion-item>\n\n        <ion-label floating>Password</ion-label>\n\n        <ion-input type="password" [(ngModel)]="password" formControlName="password"></ion-input>\n\n      </ion-item>\n\n      <ion-item *ngIf="validaForm.get(\'password\').errors && validaForm.get(\'password\').dirty">\n\n          <p color="danger" ion-text *ngIf="validaForm.get(\'password\').hasError(\'required\')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>\n\n        </ion-item>\n\n      <button ion-button block medium color="secondary"  class="btnlogin" [disabled]="validaForm.invalid">INICIAR AHORA</button>\n\n    </ion-list>\n\n  </form>\n\n  <ion-list class="espacioRegistros">\n\n    <h1>Registrarme</h1>\n\n      <button ion-button icon-start inline-block   class="btnLoginFacebook" (click)="crearCuentaFb()">\n\n        <ion-icon name=\'logo-facebook\'></ion-icon>\n\n        Facebook\n\n      </button>\n\n      <button ion-button icon-start inline-block   class="btnLoginMail" [navPush]="registrologin">\n\n        <ion-icon name=\'mail\'></ion-icon>\n\n        Correo\n\n      </button>\n\n\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\login\login.html"*/,
->>>>>>> e9c5c6fc6bb266a5a5f5b15a9c4990df392bfe51
+        selector: 'page-login',template:/*ion-inline-start:"C:\xampp\htdocs\pizzApp\src\pages\login\login.html"*/'\n\n<ion-content padding>\n\n  <ion-avatar item-start>\n\n    <img src="assets/imgs/logo-principal.png" class="logo-principal">\n\n  </ion-avatar>\n\n  <form [formGroup]="validaForm" (ngSubmit)="iniciarSesion()" novalidate>\n\n    <ion-list>\n\n      <!--Bloque para ingresar el usuario-->\n\n      <ion-item>\n\n        <ion-label floating>Usuario</ion-label>\n\n        <ion-input type="text" [(ngModel)]="email" formControlName="email"></ion-input>\n\n      </ion-item>\n\n      <ion-item *ngIf="validaForm.get(\'email\').errors && validaForm.get(\'email\').dirty">\n\n        <p color="danger" ion-text *ngIf="validaForm.get(\'email\').hasError(\'required\')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>\n\n        <p color="danger" ion-text *ngIf="validaForm.get(\'email\').hasError(\'email\')"><ion-icon name="close-circle"></ion-icon> ingresa un correo valido</p>\n\n      </ion-item>\n\n      <!--Bloque para ingresar el password-->\n\n      <ion-item>\n\n        <ion-label floating>Password</ion-label>\n\n        <ion-input type="password" [(ngModel)]="password" formControlName="password"></ion-input>\n\n      </ion-item>\n\n      <ion-item *ngIf="validaForm.get(\'password\').errors && validaForm.get(\'password\').dirty">\n\n          <p color="danger" ion-text *ngIf="validaForm.get(\'password\').hasError(\'required\')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>\n\n        </ion-item>\n\n      <button ion-button block medium color="secondary"  class="btnlogin" [disabled]="validaForm.invalid">INICIAR AHORA</button>\n\n    </ion-list>\n\n  </form>\n\n  <ion-list class="espacioRegistros">\n\n    <h1>Registrarme</h1>\n\n      <button ion-button icon-start inline-block   class="btnLoginFacebook" (click)="crearCuentaFb()">\n\n        <ion-icon name=\'logo-facebook\'></ion-icon>\n\n        Facebook\n\n      </button>\n\n      <button ion-button icon-start inline-block   class="btnLoginMail" [navPush]="registrologin">\n\n        <ion-icon name=\'mail\'></ion-icon>\n\n        Correo\n\n      </button>\n\n\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\pizzApp\src\pages\login\login.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-        __WEBPACK_IMPORTED_MODULE_3__servicios_authentication__["a" /* Authentication */], __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
+        __WEBPACK_IMPORTED_MODULE_3__servicios_authentication__["a" /* Authentication */],
+        __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__["a" /* AngularFireAuth */],
+        __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormBuilder */]])
 ], LoginPage);
 
 //# sourceMappingURL=login.js.map
@@ -398,32 +388,32 @@ webpackEmptyAsyncContext.id = 150;
 
 var map = {
 	"../pages/info-profile/info-profile.module": [
-		417,
-		9
+		415,
+		1
 	],
 	"../pages/login/login.module": [
 		411,
-		14
+		6
 	],
 	"../pages/menu-pizzeria/menu-pizzeria.module": [
 		412,
-		13
+		5
 	],
 	"../pages/perfil/perfil.module": [
 		413,
-		12
+		4
 	],
 	"../pages/pizzerias/pizzerias.module": [
 		414,
-		11
+		3
 	],
 	"../pages/registro-login/registro-login.module": [
 		410,
-		10
+		2
 	],
 	"../pages/tabs/tabs.module": [
-		415,
-		8
+		416,
+		0
 	]
 };
 function webpackAsyncContext(req) {
@@ -564,13 +554,13 @@ var PizzeriasPage_1;
 
 /***/ }),
 
-/***/ 277:
+/***/ 278:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(278);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(294);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(295);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase_app__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase_app__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__enviroment_firebase_config__ = __webpack_require__(275);
@@ -586,7 +576,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 294:
+/***/ 295:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -594,22 +584,22 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(351);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(399);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_about_about__ = __webpack_require__(142);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_contact_contact__ = __webpack_require__(360);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(361);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_contact_contact__ = __webpack_require__(408);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(409);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_pizzerias_pizzerias__ = __webpack_require__(276);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_menu_pizzeria_menu_pizzeria__ = __webpack_require__(141);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_perfil_perfil__ = __webpack_require__(138);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_login__ = __webpack_require__(140);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_registro_login_registro_login__ = __webpack_require__(139);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_angularfire2__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_angularfire2_database__ = __webpack_require__(362);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_angularfire2_database__ = __webpack_require__(277);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_angularfire2_auth__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__enviroment_firebase_config__ = __webpack_require__(275);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__servicios_authentication__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_status_bar__ = __webpack_require__(240);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_splash_screen__ = __webpack_require__(243);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_status_bar__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_splash_screen__ = __webpack_require__(274);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -665,8 +655,8 @@ AppModule = __decorate([
                     { loadChildren: '../pages/menu-pizzeria/menu-pizzeria.module#MenuPizzeriaPageModule', name: 'MenuPizzeriaPage', segment: 'menu-pizzeria', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/perfil/perfil.module#PerfilPageModule', name: 'PerfilPage', segment: 'perfil', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/pizzerias/pizzerias.module#PizzeriasPageModule', name: 'PizzeriasPage', segment: 'pizzerias', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/tabs/tabs.module#MenuPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/info-profile/info-profile.module#InfoProfilePageModule', name: 'InfoProfilePage', segment: 'info-profile', priority: 'low', defaultHistory: [] }
+                    { loadChildren: '../pages/info-profile/info-profile.module#InfoProfilePageModule', name: 'InfoProfilePage', segment: 'info-profile', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/tabs/tabs.module#MenuPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] }
                 ]
             }),
             __WEBPACK_IMPORTED_MODULE_12_angularfire2__["a" /* AngularFireModule */].initializeApp(__WEBPACK_IMPORTED_MODULE_15__enviroment_firebase_config__["a" /* firebaseConfig */]),
@@ -698,15 +688,15 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 351:
+/***/ 399:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(240);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(243);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(271);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(274);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(140);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -744,7 +734,7 @@ MyApp = __decorate([
 
 /***/ }),
 
-/***/ 360:
+/***/ 408:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -779,7 +769,7 @@ ContactPage = __decorate([
 
 /***/ }),
 
-/***/ 361:
+/***/ 409:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -814,5 +804,5 @@ HomePage = __decorate([
 
 /***/ })
 
-},[277]);
+},[278]);
 //# sourceMappingURL=main.js.map

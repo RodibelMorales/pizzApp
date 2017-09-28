@@ -1,14 +1,14 @@
 webpackJsonp([2],{
 
-/***/ 414:
+/***/ 410:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PizzeriasPageModule", function() { return PizzeriasPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegistroLoginPageModule", function() { return RegistroLoginPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pizzerias__ = __webpack_require__(276);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__registro_login__ = __webpack_require__(139);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var PizzeriasPageModule = (function () {
-    function PizzeriasPageModule() {
+var RegistroLoginPageModule = (function () {
+    function RegistroLoginPageModule() {
     }
-    return PizzeriasPageModule;
+    return RegistroLoginPageModule;
 }());
-PizzeriasPageModule = __decorate([
+RegistroLoginPageModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__pizzerias__["a" /* PizzeriasPage */],
+            __WEBPACK_IMPORTED_MODULE_2__registro_login__["a" /* RegistroLoginPage */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__pizzerias__["a" /* PizzeriasPage */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__registro_login__["a" /* RegistroLoginPage */]),
         ],
     })
-], PizzeriasPageModule);
+], RegistroLoginPageModule);
 
-//# sourceMappingURL=pizzerias.module.js.map
+//# sourceMappingURL=registro-login.module.js.map
 
 /***/ })
 
