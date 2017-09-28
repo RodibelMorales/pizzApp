@@ -22,8 +22,14 @@ export class LoginPage {
   password :string;
   registrologin=RegistroLoginPage;
   validaForm : FormGroup;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController,
-              private auth: Authentication,private angularAuth :AngularFireAuth,public formBuild:FormBuilder) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public alertCtrl: AlertController,
+    private auth: Authentication,
+    private angularAuth :AngularFireAuth,
+    public formBuild:FormBuilder
+  ){
     this.validaForm=this.formBuild.group({
       email   :['',[Validators.required,Validators.email]],
       password:['',[Validators.required,Validators.pattern(/^[a-z0-9_-]{6,18}$/)]],
@@ -43,7 +49,7 @@ export class LoginPage {
     try{
         this.angularAuth.auth.signInWithEmailAndPassword(email,password)
         .then(data =>{
-          this.navCtrl.setRoot('TabsPage');
+          this.navCtrl.setRoot('InfoProfilePage');
         })
         .catch(error=>{
           let alert = this.alertCtrl.create({

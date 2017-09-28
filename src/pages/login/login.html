@@ -1,9 +1,3 @@
-<!--
-  Generated template for the LoginPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 
 <ion-content padding>
   <ion-avatar item-start>
@@ -17,8 +11,8 @@
         <ion-input type="text" [(ngModel)]="email" formControlName="email"></ion-input>
       </ion-item>
       <ion-item *ngIf="validaForm.get('email').errors && validaForm.get('email').dirty">
-        <p color="danger" ion-text *ngIf="validaForm.get('email').hasError('required')">campo obligatorio</p>
-        <p color="danger" ion-text *ngIf="validaForm.get('email').hasError('email')">ingresa un correo valido</p>
+        <p color="danger" ion-text *ngIf="validaForm.get('email').hasError('required')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>
+        <p color="danger" ion-text *ngIf="validaForm.get('email').hasError('email')"><ion-icon name="close-circle"></ion-icon> ingresa un correo valido</p>
       </ion-item>
       <!--Bloque para ingresar el password-->
       <ion-item>
@@ -26,10 +20,9 @@
         <ion-input type="password" [(ngModel)]="password" formControlName="password"></ion-input>
       </ion-item>
       <ion-item *ngIf="validaForm.get('password').errors && validaForm.get('password').dirty">
-          <p color="danger" ion-text *ngIf="validaForm.get('password').hasError('required')">campo obligatorio</p>
-          <p color="danger" ion-text *ngIf="validaForm.get('password').hasError('pattern')">contraseña poco segura</p>
+          <p color="danger" ion-text *ngIf="validaForm.get('password').hasError('required')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>
         </ion-item>
-      <button ion-button block medium color="secondary"  class="btnlogin">INICIAR AHORA</button>
+      <button ion-button block medium color="secondary"  class="btnlogin" [disabled]="validaForm.invalid">INICIAR AHORA</button>
     </ion-list>
   </form>
   <ion-list class="espacioRegistros">
