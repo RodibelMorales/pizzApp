@@ -1,3 +1,5 @@
+import { info_profile } from './../../models/info_profile';
+import { TabsPage } from './../tabs/tabs';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController} from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -5,28 +7,24 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
 
-/**
- * Generated class for the InfoProfilePage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-info-profile',
   templateUrl: 'info-profile.html',
 })
 export class InfoProfilePage {
-  img_profile:string;
-  nombre_completo:string;
-  telefono:number;
-  direccion:string;
   validaInfoProfile:FormGroup;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController,public database:AngularFireDatabase,public formBuild:FormBuilder) {
+  info_profile={} as info_profile;
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    public alertCtrl: AlertController,
+    private database:AngularFireDatabase,
+    private afAuth:AngularFireAuth,
+    public formBuild:FormBuilder
+  ){
     this.validaInfoProfile=this.formBuild.group({
       nombre_completo:['',[Validators.required,Validators.pattern('[a-zA-Z ]*')]],
-      telefono:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10),]],
+      telefono:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
       direccion:['',[Validators.required]]
     });  
   }
@@ -34,5 +32,10 @@ export class InfoProfilePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad InfoProfilePage');
   }
-
+  infoProfile(){
+    this.afAuth.authState.take(1).subscribe(auth=>{
+      this.database.object(`Usuarios/${auth.uid}`).set(this.info_profile)
+        .then(()=> this.navCtrl.push(TabsPage));
+    });
+  }
 }
