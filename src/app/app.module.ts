@@ -12,6 +12,7 @@ import {MenuPizzeriaPage} from '../pages/menu-pizzeria/menu-pizzeria';
 import {PerfilPage} from '../pages/perfil/perfil';
 import {LoginPage} from '../pages/login/login';
 import {RegistroLoginPage} from '../pages/registro-login/registro-login';
+import {TabsPage} from '../pages/tabs/tabs';
 /*Dependencias para usar firebase*/
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireDatabaseModule} from  'angularfire2/database';
@@ -33,7 +34,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MenuPizzeriaPage,
     PerfilPage,
     LoginPage,
-    RegistroLoginPage
+    RegistroLoginPage,
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MenuPizzeriaPage,
     PerfilPage,
     LoginPage,
-    RegistroLoginPage
+    RegistroLoginPage,
+    TabsPage
   ],
   providers: [
     StatusBar,

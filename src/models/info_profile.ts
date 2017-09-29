@@ -3,4 +3,5 @@ export interface info_profile{
     nombre_completo:string;
     telefono:number;
     direccion:string;
+    reputacion:string;
 }

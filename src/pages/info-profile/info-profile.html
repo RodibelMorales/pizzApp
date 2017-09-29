@@ -9,7 +9,8 @@
       <!--Bloque para ingresar el usuario-->
       <ion-item>
         <ion-label floating>Nombre Completo</ion-label>
-        <ion-input type="text" [(ngModel)]="nombre_completo" formControlName="nombre_completo"></ion-input>
+        <ion-input type="text" [(ngModel)]="info_profile.nombre_completo" formControlName="nombre_completo"></ion-input>
+        <ion-input type="hidden" [(ngModel)]="info_profile.reputacion"></ion-input>
       </ion-item>
       <ion-item *ngIf="validaInfoProfile.get('nombre_completo').errors && validaInfoProfile.get('nombre_completo').dirty">
         <p color="danger" ion-text *ngIf="validaInfoProfile.get('nombre_completo').hasError('required')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>
@@ -18,7 +19,7 @@
       <!--Bloque para ingresar el password-->
       <ion-item>
         <ion-label floating>Telefono</ion-label>
-        <ion-input type="number" [(ngModel)]="telefono" formControlName="telefono"></ion-input>
+        <ion-input type="number" [(ngModel)]="info_profile.telefono" formControlName="telefono"></ion-input>
       </ion-item>
       <ion-item *ngIf="validaInfoProfile.get('telefono').errors && validaInfoProfile.get('telefono').dirty">
         <p color="danger" ion-text *ngIf="validaInfoProfile.get('telefono').hasError('required')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>
@@ -28,7 +29,7 @@
       <!--Bloque para ingresar la direccion-->
       <ion-item>
         <ion-label floating>Dirección</ion-label>
-        <ion-input type="text" [(ngModel)]="direccion" formControlName="direccion"></ion-input>
+        <ion-textarea  type="text" [(ngModel)]="info_profile.direccion" formControlName="direccion"></ion-textarea >
       </ion-item>
       <ion-item *ngIf="validaInfoProfile.get('direccion').errors && validaInfoProfile.get('direccion').dirty">
         <p color="danger" ion-text *ngIf="validaInfoProfile.get('direccion').hasError('required')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>
