@@ -19,7 +19,7 @@
       <ion-avatar item-start>
         <img src="assets/imgs/rodibel.jpg">
       </ion-avatar>
-      <h2>Rodibel Morales</h2>
+      <h2>{{(profileData | async)?.nombre}} {{(profileData | async)?.ap_paterno}}</h2>
         <div class="reputacion">
             <ion-icon name="star" icon-left clear small></ion-icon>
             <ion-icon name="star" icon-left clear small></ion-icon>

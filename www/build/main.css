@@ -27532,6 +27532,44 @@ page-info-profile ion-item {
   padding-left: 0px !important;
 }
 
+page-info-profile .divUpload {
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  margin-left: 0px;
+  background: #9E9E9E;
+  color: #fff;
+  padding: 5px;
+  width: 120px;
+  border-radius: 100px;
+  height: 120px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+page-info-profile .uploadBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  height: 120px;
+}
+
+page-info-profile .Divtitlefoto {
+  position: relative;
+  top: 45px;
+  padding-left: 5px;
+}
+
+page-info-profile .Divtitlefoto span {
+  font-size: 10pt;
+}
+
 page-login ion-item {
   padding-left: 0px !important;
 }

@@ -1,5 +1,4 @@
 import { info_profile } from './../../models/info_profile';
-import { TabsPage } from './../tabs/tabs';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController} from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -23,10 +22,14 @@ export class InfoProfilePage {
     public formBuild:FormBuilder
   ){
     this.validaInfoProfile=this.formBuild.group({
-      nombre_completo:['',[Validators.required,Validators.pattern('[a-zA-Z ]*')]],
+      img_profile:['',Validators.required],
+      nombre:['',[Validators.required,Validators.pattern('[a-zA-Z ]*')]],
+      ap_paterno:['',[Validators.required,Validators.pattern('[a-zA-Z ]*')]],
+      ap_materno:['',[Validators.required,Validators.pattern('[a-zA-Z ]*')]],
       telefono:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
-      direccion:['',[Validators.required]]
-    });  
+      direccion:['',[Validators.required]],
+      reputacion:['']
+    });
   }
 
   ionViewDidLoad() {
@@ -34,8 +37,8 @@ export class InfoProfilePage {
   }
   infoProfile(){
     this.afAuth.authState.take(1).subscribe(auth=>{
-      this.database.object(`Usuarios/${auth.uid}`).set(this.info_profile)
-        .then(()=> this.navCtrl.push(TabsPage));
+        this.database.object(`Usuarios/${auth.uid}`).set(this.info_profile)
+        .then(()=> this.navCtrl.setRoot('TabsPage'));
     });
   }
 }

@@ -1,15 +1,14 @@
 import { Component }   from '@angular/core';
 import { IonicPage,NavController,NavParams,ToastController } from 'ionic-angular';
 import { AboutPage }   from '../about/about';
-import { ContactPage } from '../contact/contact';
-import { HomePage }    from '../home/home';
 import {PizzeriasPage} from '../pizzerias/pizzerias';
 import {PerfilPage}    from '../perfil/perfil';
 /*imports para mostrar mensaje iniciar y optener info de firebase*/
 import { AngularFireAuth } from 'angularfire2/auth';
-
-@IonicPage({})
+import { AngularFireDatabase,FirebaseObjectObservable } from 'angularfire2/database';
+@IonicPage()
 @Component({
+  selector:'tabs',
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
@@ -18,7 +17,13 @@ export class TabsPage {
   tab2Root = AboutPage;
   tab3Root = PerfilPage;
 
-  constructor(private auth:AngularFireAuth,private toast:ToastController,public navCtrl:NavController,public navParams: NavParams) {
+  constructor(
+    private auth:AngularFireAuth,
+    private toast:ToastController,
+    public navCtrl:NavController,
+    public navParams: NavParams,
+    private database:AngularFireDatabase
+  ) {
 
   }
   ionViewWillLoad(){
@@ -29,10 +34,15 @@ export class TabsPage {
             message: `Bienvenido ${data.email}`,
             duration:5000
           }).present();
+        }else{
+          this.toast.create({
+            message: `Upps no haz iniciado sesion`,
+            duration:5000
+          }).present();
         }
       });
     }catch(e){
-      console.error("ERROR DE SESION");
+      alert("ERROR DE SESION");
     }
   }
 }
