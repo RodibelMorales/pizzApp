@@ -3,7 +3,8 @@ import { IonicPage, NavController, NavParams, AlertController} from 'ionic-angul
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Authentication } from './../../servicios/authentication';
 import {RegistroLoginPage} from '../registro-login/registro-login';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { info_profile } from './../../models/info_profile';
+import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 @IonicPage()
@@ -16,6 +17,7 @@ export class LoginPage {
   password :string;
   registrologin=RegistroLoginPage;
   validaForm : FormGroup;
+  createProfile: FirebaseObjectObservable<any>
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -44,15 +46,14 @@ export class LoginPage {
     try{
         this.angularAuth.auth.signInWithEmailAndPassword(email,password)
         .then(data =>{
-            const createProfile=this.database.object(`Usuarios/${data.uid}`);
-            if(createProfile !== null){
-              this.navCtrl.setRoot('InfoProfilePage');
-              console.log("tengo que agregar info");
-            }else{
-              console.log("mostrar listado");
-              //this.navCtrl.setRoot('TabsPage');
-            }
-            //
+          this.createProfile=this.database.object(`Usuarios/${data.uid}`,{ preserveSnapshot: true });    
+            this.createProfile.take(1).subscribe(snapshot=>{
+              if(snapshot.val() == null ){
+                this.navCtrl.setRoot('InfoProfilePage');
+              }else{
+                this.navCtrl.setRoot('TabsPage');
+              }
+            });
         }).catch(error=>{
           let alert = this.alertCtrl.create({
             title: 'Upps!',
