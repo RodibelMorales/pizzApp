@@ -6,4 +6,5 @@ export interface info_profile{
     telefono       :number;
     direccion      :string;
     reputacion     :string;
+    referencia     :string;
 }
