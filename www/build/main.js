@@ -1,12 +1,14 @@
 webpackJsonp([7],{
 
-/***/ 111:
+/***/ 140:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PerfilPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__ = __webpack_require__(80);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,20 +20,43 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var AboutPage = (function () {
-    function AboutPage(navCtrl) {
-        this.navCtrl = navCtrl;
-    }
-    return AboutPage;
-}());
-AboutPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-about',template:/*ion-inline-start:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\about\about.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      About\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\about\about.html"*/
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]])
-], AboutPage);
 
-//# sourceMappingURL=about.js.map
+
+var PerfilPage = (function () {
+    function PerfilPage(navCtrl, navParams, auth, database) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.auth = auth;
+        this.database = database;
+        this.getInfoProfile();
+    }
+    PerfilPage.prototype.ionViewDidLoad = function () {
+        console.log('cargando vista perfil');
+    };
+    PerfilPage.prototype.getInfoProfile = function () {
+        var _this = this;
+        try {
+            this.auth.authState.take(1).subscribe(function (data) {
+                _this.email = data.email;
+                _this.profileData = _this.database.object("Usuarios/" + data.uid);
+            });
+        }
+        catch (e) {
+            this.navCtrl.setRoot('loginPage');
+        }
+    };
+    return PerfilPage;
+}());
+PerfilPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-perfil',template:/*ion-inline-start:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\perfil\perfil.html"*/'<!--\n\n  Generated template for the PerfilPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Mi perfil</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <ion-card>\n\n    <ion-item>\n\n      <ion-avatar item-start>\n\n        <img src="assets/imgs/rodibel.jpg">\n\n      </ion-avatar>\n\n      <h2>{{(profileData | async)?.nombre}} {{(profileData | async)?.ap_paterno}}</h2>\n\n        <div class="reputacion">\n\n            <ion-icon name="star" icon-left clear small></ion-icon>\n\n            <ion-icon name="star" icon-left clear small></ion-icon>\n\n            <ion-icon name="star" icon-left clear small></ion-icon>\n\n            <ion-icon name="star" icon-left clear small></ion-icon>\n\n            <ion-icon name="star" icon-left clear small></ion-icon>\n\n        </div>  \n\n    </ion-item>  \n\n    <ion-card-content>\n\n      <div class="border-bottom-profileInfo">\n\n          <h2>Email</h2>\n\n          <p>{{email}}</p>\n\n      </div>\n\n      <div class="border-bottom-profileInfo">     \n\n        <h2>Telefono</h2>\n\n          <p>{{(profileData | async)?.telefono}}</p> \n\n      </div> \n\n      <div class="border-bottom-profileInfo">\n\n        <h2>Dirección</h2>\n\n          <p>{{(profileData | async)?.direccion}}</p>\n\n      </div>\n\n      <div class="bloque-info">\n\n        <h2>Referencia</h2>\n\n          <p>{{(profileData | async)?.referencia}}</p>\n\n      </div> \n\n    </ion-card-content>\n\n  </ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\perfil\perfil.html"*/,
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _d || Object])
+], PerfilPage);
+
+var _a, _b, _c, _d;
+//# sourceMappingURL=perfil.js.map
 
 /***/ }),
 
@@ -41,7 +66,7 @@ AboutPage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegistroLoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(42);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -152,11 +177,11 @@ RegistroLoginPage = __decorate([
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__servicios_authentication__ = __webpack_require__(201);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__registro_login_registro_login__ = __webpack_require__(141);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_database__ = __webpack_require__(278);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_database__ = __webpack_require__(80);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_auth__ = __webpack_require__(42);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -240,16 +265,15 @@ var LoginPage = (function () {
                 try {
                     this.angularAuth.auth.signInWithEmailAndPassword(email, password)
                         .then(function (data) {
-                        var createProfile = _this.database.object("Usuarios/" + data.uid);
-                        if (createProfile !== null) {
-                            _this.navCtrl.setRoot('InfoProfilePage');
-                            console.log("tengo que agregar info");
-                        }
-                        else {
-                            console.log("mostrar listado");
-                            //this.navCtrl.setRoot('TabsPage');
-                        }
-                        //
+                        _this.createProfile = _this.database.object("Usuarios/" + data.uid, { preserveSnapshot: true });
+                        _this.createProfile.take(1).subscribe(function (snapshot) {
+                            if (snapshot.val() == null) {
+                                _this.navCtrl.setRoot('InfoProfilePage');
+                            }
+                            else {
+                                _this.navCtrl.setRoot('TabsPage');
+                            }
+                        });
                     }).catch(function (error) {
                         var alert = _this.alertCtrl.create({
                             title: 'Upps!',
@@ -287,7 +311,7 @@ var _a, _b, _c, _d, _e, _f, _g;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MenuPizzeriaPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -331,13 +355,9 @@ MenuPizzeriaPage = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PizzeriasPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__menu_pizzeria_menu_pizzeria__ = __webpack_require__(143);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__about_about__ = __webpack_require__(111);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__perfil_perfil__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -349,38 +369,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-/*Importando paginas  */
-
-
-
-/*imports para mostrar mensaje iniciar y optener info de firebase*/
-
-var PizzeriasPage = PizzeriasPage_1 = (function () {
-    function PizzeriasPage(auth, toast, navCtrl, navParams) {
-        this.auth = auth;
-        this.toast = toast;
+var AboutPage = (function () {
+    function AboutPage(navCtrl) {
         this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.menupizzeria = __WEBPACK_IMPORTED_MODULE_2__menu_pizzeria_menu_pizzeria__["a" /* MenuPizzeriaPage */];
-        this.tab1Root = PizzeriasPage_1;
-        this.tab2Root = __WEBPACK_IMPORTED_MODULE_3__about_about__["a" /* AboutPage */];
-        this.tab3Root = __WEBPACK_IMPORTED_MODULE_4__perfil_perfil__["a" /* PerfilPage */];
     }
-    PizzeriasPage.prototype.ionViewDidLoad = function () {
-        console.log("vista del listado pizza");
-    };
-    return PizzeriasPage;
+    return AboutPage;
 }());
-PizzeriasPage = PizzeriasPage_1 = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
+AboutPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-pizzerias',template:/*ion-inline-start:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\pizzerias\pizzerias.html"*/'<!--\n\n  Generated template for the PizzeriasPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Pizzerias</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content >\n\n  <ion-card>\n\n    <img src="assets/imgs/dominos.jpg"/>\n\n    <ion-card-content>\n\n      <ion-card-title>\n\n        Domino\'s Pizza\n\n        </ion-card-title>\n\n      <p>\n\n        La mejor pizza segun la mercadotecnia.\n\n      </p>\n\n      <button ion-button block  color="calltoaction" [navPush]="menupizzeria">VER MENU</button>\n\n    </ion-card-content>\n\n  </ion-card>\n\n\n\n  <ion-card>\n\n    <img src="assets/imgs/dominos.jpg"/>\n\n    <ion-card-content>\n\n      <ion-card-title>\n\n        Domino\'s Pizza\n\n        </ion-card-title>\n\n      <p>\n\n        La mejor pizza segun la mercadotecnia.\n\n      </p>\n\n      <button ion-button block color="calltoaction" [navPush]="menupizzeria">VER MENU</button>\n\n    </ion-card-content>\n\n  </ion-card>  \n\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\pizzerias\pizzerias.html"*/,
+        selector: 'page-about',template:/*ion-inline-start:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\about\about.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      About\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\about\about.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
-], PizzeriasPage);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]])
+], AboutPage);
 
-var PizzeriasPage_1;
-//# sourceMappingURL=pizzerias.js.map
+//# sourceMappingURL=about.js.map
 
 /***/ }),
 
@@ -406,32 +408,32 @@ webpackEmptyAsyncContext.id = 151;
 
 var map = {
 	"../pages/info-profile/info-profile.module": [
-		420,
-		0
+		416,
+		1
 	],
 	"../pages/login/login.module": [
-		415,
+		412,
 		6
 	],
 	"../pages/menu-pizzeria/menu-pizzeria.module": [
-		416,
+		413,
 		5
 	],
 	"../pages/perfil/perfil.module": [
-		417,
+		414,
 		4
 	],
 	"../pages/pizzerias/pizzerias.module": [
-		418,
+		415,
 		3
 	],
 	"../pages/registro-login/registro-login.module": [
-		414,
+		411,
 		2
 	],
 	"../pages/tabs/tabs.module": [
-		419,
-		1
+		417,
+		0
 	]
 };
 function webpackAsyncContext(req) {
@@ -515,17 +517,74 @@ var firebaseConfig = {
 
 /***/ }),
 
-/***/ 279:
+/***/ 277:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PizzeriasPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__menu_pizzeria_menu_pizzeria__ = __webpack_require__(143);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__about_about__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__perfil_perfil__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__ = __webpack_require__(42);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/*Importando paginas  */
+
+
+
+/*imports para mostrar mensaje iniciar y optener info de firebase*/
+
+var PizzeriasPage = PizzeriasPage_1 = (function () {
+    function PizzeriasPage(auth, toast, navCtrl, navParams) {
+        this.auth = auth;
+        this.toast = toast;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.menupizzeria = __WEBPACK_IMPORTED_MODULE_2__menu_pizzeria_menu_pizzeria__["a" /* MenuPizzeriaPage */];
+        this.tab1Root = PizzeriasPage_1;
+        this.tab2Root = __WEBPACK_IMPORTED_MODULE_3__about_about__["a" /* AboutPage */];
+        this.tab3Root = __WEBPACK_IMPORTED_MODULE_4__perfil_perfil__["a" /* PerfilPage */];
+    }
+    PizzeriasPage.prototype.ionViewDidLoad = function () {
+        console.log("vista del listado pizza");
+    };
+    return PizzeriasPage;
+}());
+PizzeriasPage = PizzeriasPage_1 = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-pizzerias',template:/*ion-inline-start:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\pizzerias\pizzerias.html"*/'<!--\n\n  Generated template for the PizzeriasPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Pizzerias</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content >\n\n  <ion-card>\n\n    <img src="assets/imgs/dominos.jpg"/>\n\n    <ion-card-content>\n\n      <ion-card-title>\n\n        Domino\'s Pizza\n\n        </ion-card-title>\n\n      <p>\n\n        La mejor pizza segun la mercadotecnia.\n\n      </p>\n\n      <button ion-button block  color="calltoaction" [navPush]="menupizzeria">VER MENU</button>\n\n    </ion-card-content>\n\n  </ion-card>\n\n\n\n  <ion-card>\n\n    <img src="assets/imgs/dominos.jpg"/>\n\n    <ion-card-content>\n\n      <ion-card-title>\n\n        Domino\'s Pizza\n\n        </ion-card-title>\n\n      <p>\n\n        La mejor pizza segun la mercadotecnia.\n\n      </p>\n\n      <button ion-button block color="calltoaction" [navPush]="menupizzeria">VER MENU</button>\n\n    </ion-card-content>\n\n  </ion-card>  \n\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\pizzerias\pizzerias.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+], PizzeriasPage);
+
+var PizzeriasPage_1;
+//# sourceMappingURL=pizzerias.js.map
+
+/***/ }),
+
+/***/ 278:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(280);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(296);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(279);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(295);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase_app__ = __webpack_require__(37);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase_app__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__enviroment_firebase_config__ = __webpack_require__(276);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_take__ = __webpack_require__(411);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_take__ = __webpack_require__(408);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_take___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_take__);
 
 
@@ -540,23 +599,23 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 296:
+/***/ 295:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(400);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_pizzerias_pizzerias__ = __webpack_require__(144);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(399);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_pizzerias_pizzerias__ = __webpack_require__(277);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_menu_pizzeria_menu_pizzeria__ = __webpack_require__(143);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_about_about__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_about_about__ = __webpack_require__(144);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(142);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_registro_login_registro_login__ = __webpack_require__(141);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_perfil_perfil__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_perfil_perfil__ = __webpack_require__(140);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_angularfire2__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_angularfire2_database__ = __webpack_require__(278);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_angularfire2_database__ = __webpack_require__(80);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_angularfire2_auth__ = __webpack_require__(42);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__enviroment_firebase_config__ = __webpack_require__(276);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__servicios_authentication__ = __webpack_require__(201);
@@ -613,8 +672,8 @@ AppModule = __decorate([
                     { loadChildren: '../pages/menu-pizzeria/menu-pizzeria.module#MenuPizzeriaPageModule', name: 'MenuPizzeriaPage', segment: 'menu-pizzeria', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/perfil/perfil.module#PerfilPageModule', name: 'PerfilPage', segment: 'perfil', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/pizzerias/pizzerias.module#PizzeriasPageModule', name: 'PizzeriasPage', segment: 'pizzerias', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/tabs/tabs.module#MenuPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/info-profile/info-profile.module#InfoProfilePageModule', name: 'InfoProfilePage', segment: 'info-profile', priority: 'low', defaultHistory: [] }
+                    { loadChildren: '../pages/info-profile/info-profile.module#InfoProfilePageModule', name: 'InfoProfilePage', segment: 'info-profile', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/tabs/tabs.module#MenuPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] }
                 ]
             }),
             __WEBPACK_IMPORTED_MODULE_10_angularfire2__["a" /* AngularFireModule */].initializeApp(__WEBPACK_IMPORTED_MODULE_13__enviroment_firebase_config__["a" /* firebaseConfig */]),
@@ -644,13 +703,13 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 400:
+/***/ 399:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(272);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(275);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(142);
@@ -688,65 +747,7 @@ MyApp = __decorate([
 
 //# sourceMappingURL=app.component.js.map
 
-/***/ }),
-
-/***/ 80:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PerfilPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(42);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__ = __webpack_require__(278);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var PerfilPage = (function () {
-    function PerfilPage(navCtrl, navParams, auth, database) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.auth = auth;
-        this.database = database;
-        this.getInfoProfile();
-    }
-    PerfilPage.prototype.ionViewDidLoad = function () {
-        console.log('cargando vista perfil');
-    };
-    PerfilPage.prototype.getInfoProfile = function () {
-        var _this = this;
-        try {
-            this.auth.authState.take(1).subscribe(function (data) {
-                _this.profileData = _this.database.object("Usuarios/" + data.uid);
-            });
-        }
-        catch (e) {
-            this.navCtrl.setRoot('loginPage');
-        }
-    };
-    return PerfilPage;
-}());
-PerfilPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-perfil',template:/*ion-inline-start:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\perfil\perfil.html"*/'<!--\n\n  Generated template for the PerfilPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Mi perfil</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <ion-card>\n\n    <ion-item>\n\n      <ion-avatar item-start>\n\n        <img src="assets/imgs/rodibel.jpg">\n\n      </ion-avatar>\n\n      <h2>{{(profileData | async)?.nombre}} {{(profileData | async)?.ap_paterno}}</h2>\n\n        <div class="reputacion">\n\n            <ion-icon name="star" icon-left clear small></ion-icon>\n\n            <ion-icon name="star" icon-left clear small></ion-icon>\n\n            <ion-icon name="star" icon-left clear small></ion-icon>\n\n            <ion-icon name="star" icon-left clear small></ion-icon>\n\n            <ion-icon name="star" icon-left clear small></ion-icon>\n\n        </div>  \n\n    </ion-item>  \n\n    <ion-card-content>\n\n      <div class="border-bottom-profileInfo">\n\n          <h2>Email</h2>\n\n          <p>correodemo@ejemplo.com</p>\n\n      </div>\n\n      <div class="border-bottom-profileInfo">     \n\n        <h2>Telefono</h2>\n\n          <p>9841836896</p> \n\n      </div> \n\n      <div class="border-bottom-profileInfo">\n\n        <h2>Dirección</h2>\n\n          <p>Calle 70 entre 30 y 35 lote 9 manzana 373 colonia luis donaldo colosio.</p>\n\n      </div>\n\n      <div class="bloque-info">\n\n        <h2>Referencia</h2>\n\n          <p>Por la casa de un amigo que vive cerda de esquina.</p>\n\n      </div> \n\n    </ion-card-content>\n\n  </ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\perfil\perfil.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3_angularfire2_database__["a" /* AngularFireDatabase */]])
-], PerfilPage);
-
-//# sourceMappingURL=perfil.js.map
-
 /***/ })
 
-},[279]);
+},[278]);
 //# sourceMappingURL=main.js.map
