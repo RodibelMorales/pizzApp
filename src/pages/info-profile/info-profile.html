@@ -7,58 +7,68 @@
   <form [formGroup]="validaInfoProfile" (ngSubmit)="infoProfile()" novalidate>
     <ion-list>
       <!--Bloque para añadir una imagen a firebase y crear la info adicional-->
-      <ion-item>
-        <div class="divUpload">
-          <div class="Divtitlefoto">
-            <span>Mi</span>
-            <span>Foto de</span>
-            <span>Perfil</span>
+        <ion-item>
+          <div class="divUpload">
+            <div class="Divtitlefoto">
+              <span>Mi</span>
+              <span>Foto de</span>
+              <span>Perfil</span>
+            </div>
+            <input type="file" class="uploadBtn">
           </div>
-          <input type="file" class="uploadBtn">
-        </div>
-      </ion-item>   
+        </ion-item>   
       <!--Bloque para ingresar el usuario-->
-      <ion-item>
-        <ion-label>Nombre:</ion-label>
-        <ion-input type="text" [(ngModel)]="info_profile.nombre" formControlName="nombre"></ion-input>
-      </ion-item>
-      <ion-item *ngIf="validaInfoProfile.get('nombre').errors && validaInfoProfile.get('nombre').dirty">
-        <p color="danger" ion-text *ngIf="validaInfoProfile.get('nombre').hasError('required')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>
-        <p color="danger" ion-text *ngIf="validaInfoProfile.get('nombre').hasError('pattern')"><ion-icon name="close-circle"></ion-icon> solo se adapmite texto</p>
-      </ion-item>
+        <ion-item>
+          <ion-label>Nombre:</ion-label>
+          <ion-input type="text" [(ngModel)]="info_profile.nombre" formControlName="nombre"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="validaInfoProfile.get('nombre').errors && validaInfoProfile.get('nombre').dirty">
+          <p color="danger" ion-text *ngIf="validaInfoProfile.get('nombre').hasError('required')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>
+          <p color="danger" ion-text *ngIf="validaInfoProfile.get('nombre').hasError('pattern')"><ion-icon name="close-circle"></ion-icon> solo se adapmite texto</p>
+        </ion-item>
       <!--Bloque para ingresar el usuario-->
-      <ion-item>
-        <ion-label>Apellidos:</ion-label>
-        <ion-input type="text" [(ngModel)]="info_profile.ap_paterno" formControlName="ap_paterno"></ion-input>
-        <ion-input type="text" [(ngModel)]="info_profile.ap_materno" formControlName="ap_materno"></ion-input>
-      </ion-item>
-      <ion-item *ngIf="validaInfoProfile.get('ap_paterno').errors && validaInfoProfile.get('ap_paterno').dirty">
-        <p color="danger" ion-text *ngIf="validaInfoProfile.get('ap_paterno').hasError('required')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>
-        <p color="danger" ion-text *ngIf="validaInfoProfile.get('ap_paterno').hasError('pattern')"><ion-icon name="close-circle"></ion-icon> solo se adapmite texto</p>
-      </ion-item>
-      <ion-item *ngIf="validaInfoProfile.get('ap_materno').errors && validaInfoProfile.get('ap_materno').dirty">
-        <p color="danger" ion-text *ngIf="validaInfoProfile.get('ap_materno').hasError('required')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>
-        <p color="danger" ion-text *ngIf="validaInfoProfile.get('ap_materno').hasError('pattern')"><ion-icon name="close-circle"></ion-icon> solo se adapmite texto</p>
-      </ion-item>
+        <ion-item>
+          <ion-label>Apellidos:</ion-label>
+          <ion-input type="text" [(ngModel)]="info_profile.ap_paterno" formControlName="ap_paterno"></ion-input>
+          <ion-input type="text" [(ngModel)]="info_profile.ap_materno" formControlName="ap_materno" class="a_materno"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="validaInfoProfile.get('ap_paterno').errors && validaInfoProfile.get('ap_paterno').dirty">
+          <p color="danger" ion-text *ngIf="validaInfoProfile.get('ap_paterno').hasError('required')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>
+          <p color="danger" ion-text *ngIf="validaInfoProfile.get('ap_paterno').hasError('pattern')"><ion-icon name="close-circle"></ion-icon> solo se adapmite texto</p>
+        </ion-item>
+        <ion-item *ngIf="validaInfoProfile.get('ap_materno').errors && validaInfoProfile.get('ap_materno').dirty">
+          <p color="danger" ion-text *ngIf="validaInfoProfile.get('ap_materno').hasError('required')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>
+          <p color="danger" ion-text *ngIf="validaInfoProfile.get('ap_materno').hasError('pattern')"><ion-icon name="close-circle"></ion-icon> solo se adapmite texto</p>
+        </ion-item>
       <!--Bloque para ingresar el telefono-->
-      <ion-item>
-        <ion-label>Telefono</ion-label>
-        <ion-input type="number" [(ngModel)]="info_profile.telefono" formControlName="telefono"></ion-input>
-      </ion-item>
-      <ion-item *ngIf="validaInfoProfile.get('telefono').errors && validaInfoProfile.get('telefono').dirty">
-        <p color="danger" ion-text *ngIf="validaInfoProfile.get('telefono').hasError('required')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>
-        <p color="danger" ion-text *ngIf="validaInfoProfile.get('telefono').hasError('minLength')"><ion-icon name="close-circle"></ion-icon> Ingresa un numero telefonico minimo de 10 digitos</p>
-        <p color="danger" ion-text *ngIf="validaInfoProfile.get('telefono').hasError('maxLength')"><ion-icon name="close-circle"></ion-icon> Ingresa un numero telefonico maximo de 10 digitos</p>
-      </ion-item>
+        <ion-item>
+          <ion-label>Telefono</ion-label>
+          <ion-input type="number" [(ngModel)]="info_profile.telefono" formControlName="telefono"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="validaInfoProfile.get('telefono').errors && validaInfoProfile.get('telefono').dirty">
+          <p color="danger" ion-text *ngIf="validaInfoProfile.get('telefono').hasError('required')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>
+          <p color="danger" ion-text *ngIf="validaInfoProfile.get('telefono').hasError('minLength')"><ion-icon name="close-circle"></ion-icon> Ingresa un numero telefonico minimo de 10 digitos</p>
+          <p color="danger" ion-text *ngIf="validaInfoProfile.get('telefono').hasError('maxLength')"><ion-icon name="close-circle"></ion-icon> Ingresa un numero telefonico maximo de 10 digitos</p>
+        </ion-item>
       <!--Bloque para ingresar la direccion-->
-      <ion-item>
-        <ion-label>Dirección</ion-label>
-        <ion-textarea  type="text" [(ngModel)]="info_profile.direccion" formControlName="direccion"></ion-textarea >
-      </ion-item>
-      <ion-item *ngIf="validaInfoProfile.get('direccion').errors && validaInfoProfile.get('direccion').dirty">
-        <p color="danger" ion-text *ngIf="validaInfoProfile.get('direccion').hasError('required')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>
-      </ion-item>
+        <ion-item>
+          <ion-label>Dirección</ion-label>
+          <ion-textarea  type="text" [(ngModel)]="info_profile.direccion" formControlName="direccion"></ion-textarea >
+        </ion-item>
+        <ion-item *ngIf="validaInfoProfile.get('direccion').errors && validaInfoProfile.get('direccion').dirty">
+          <p color="danger" ion-text *ngIf="validaInfoProfile.get('direccion').hasError('required')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>
+        </ion-item>
+      <!--Bloque para ingresar una referencia del cliente-->
+        <ion-item>
+          <ion-label>¿Alguna referencia?</ion-label>
+          <ion-textarea  type="text" [(ngModel)]="info_profile.referencia" formControlName="referencia"></ion-textarea >
+        </ion-item>
+        <ion-item *ngIf="validaInfoProfile.get('referencia').errors && validaInfoProfile.get('referencia').dirty">
+          <p color="danger" ion-text *ngIf="validaInfoProfile.get('referencia').hasError('required')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>
+        </ion-item>
+      <!--Bloque para iniciar el contador de la reputacion-->
       <ion-input type="hidden" [(ngModel)]="info_profile.reputacion" formControlName="reputacion" value="0"></ion-input>
+      <!--Boton para guardar la info-->
       <button ion-button block medium color="secondary"  class="btnlogin">GUARDAR</button>
     </ion-list>
   </form>
