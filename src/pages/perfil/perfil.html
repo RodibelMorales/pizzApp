@@ -31,19 +31,19 @@
     <ion-card-content>
       <div class="border-bottom-profileInfo">
           <h2>Email</h2>
-          <p>correodemo@ejemplo.com</p>
+          <p>{{email}}</p>
       </div>
       <div class="border-bottom-profileInfo">     
         <h2>Telefono</h2>
-          <p>9841836896</p> 
+          <p>{{(profileData | async)?.telefono}}</p> 
       </div> 
       <div class="border-bottom-profileInfo">
         <h2>Dirección</h2>
-          <p>Calle 70 entre 30 y 35 lote 9 manzana 373 colonia luis donaldo colosio.</p>
+          <p>{{(profileData | async)?.direccion}}</p>
       </div>
       <div class="bloque-info">
         <h2>Referencia</h2>
-          <p>Por la casa de un amigo que vive cerda de esquina.</p>
+          <p>{{(profileData | async)?.referencia}}</p>
       </div> 
     </ion-card-content>
   </ion-card>

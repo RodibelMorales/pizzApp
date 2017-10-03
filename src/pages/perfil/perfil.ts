@@ -11,6 +11,7 @@ import * as firebase from 'firebase/app';
 })
 export class PerfilPage {
   profileData: FirebaseObjectObservable<info_profile>
+  email:string;
   constructor(public navCtrl: NavController, public navParams: NavParams,private auth:AngularFireAuth,private database:AngularFireDatabase) {
     this.getInfoProfile();
   }
@@ -22,6 +23,7 @@ export class PerfilPage {
   getInfoProfile(){
     try{
       this.auth.authState.take(1).subscribe(data=>{
+        this.email=data.email;
         this.profileData=this.database.object(`Usuarios/${data.uid}`);
       });
     }catch(e){
