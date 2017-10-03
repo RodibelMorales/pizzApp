@@ -28,7 +28,8 @@ export class InfoProfilePage {
       ap_materno:['',[Validators.required,Validators.pattern('[a-zA-Z ]*')]],
       telefono:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
       direccion:['',[Validators.required]],
-      reputacion:['']
+      reputacion:[''],
+      referencia:['',[Validators.required]]
     });
   }
 
