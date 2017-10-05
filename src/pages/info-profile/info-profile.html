@@ -6,15 +6,16 @@
 <ion-content padding>
   <form [formGroup]="validaInfoProfile" (ngSubmit)="infoProfile()" novalidate>
     <ion-list>
+        <img src="{{ imgprofile }}"/>
       <!--Bloque para añadir una imagen a firebase y crear la info adicional-->
         <ion-item>
           <div class="divUpload">
             <div class="Divtitlefoto">
-              <span>Mi</span>
+              <span>Mi</span> 
               <span>Foto de</span>
               <span>Perfil</span>
             </div>
-            <input type="file" class="uploadBtn">
+            <input type="file" class="uploadBtn" (change)="uploadImgProfile($event)">
           </div>
         </ion-item>   
       <!--Bloque para ingresar el usuario-->

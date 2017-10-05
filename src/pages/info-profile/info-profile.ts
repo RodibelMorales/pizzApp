@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase/app';
+import 'firebase/storage';
 
 @IonicPage()
 @Component({
@@ -14,6 +15,10 @@ import * as firebase from 'firebase/app';
 export class InfoProfilePage {
   validaInfoProfile:FormGroup;
   info_profile={} as info_profile;
+  imgprofile:any;
+  storageRef:firebase.storage.Reference;
+  urlProfileUser:any;
+  imgprofileInner:any;
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     public alertCtrl: AlertController,
@@ -31,6 +36,7 @@ export class InfoProfilePage {
       reputacion:[''],
       referencia:['',[Validators.required]]
     });
+    this.storageRef= firebase.storage().ref();
   }
 
   ionViewDidLoad() {
@@ -40,6 +46,20 @@ export class InfoProfilePage {
     this.afAuth.authState.take(1).subscribe(auth=>{
         this.database.object(`Usuarios/${auth.uid}`).set(this.info_profile)
         .then(()=> this.navCtrl.setRoot('TabsPage'));
+    });
+  }
+  uploadImgProfile(ev){
+    this.afAuth.authState.take(1).subscribe(auth=>{
+      let fileRef=this.storageRef.child("/images_profiles/"+auth.uid+"/"+ev.target.files[0]['name']);
+      let uploadTask=fileRef.put(ev.target.files[0]);
+      return new Promise((resolve,reject)=>{
+          uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED,(snapshot)=>{
+          console.log("cargando........")
+          },(err)=>console.log(err),()=>{
+            this.imgprofile=uploadTask.snapshot.downloadURL;
+            console.log(this.imgprofile);
+          });
+      });
     });
   }
 }
