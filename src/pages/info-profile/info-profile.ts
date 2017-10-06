@@ -9,6 +9,7 @@ import 'firebase/storage';
 
 @IonicPage()
 @Component({
+  
   selector: 'page-info-profile',
   templateUrl: 'info-profile.html',
 })
@@ -18,7 +19,7 @@ export class InfoProfilePage {
   imgprofile:any;
   storageRef:firebase.storage.Reference;
   urlProfileUser:any;
-  imgprofileInner:any;
+  emailuser:any;
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     public alertCtrl: AlertController,
@@ -34,6 +35,7 @@ export class InfoProfilePage {
       telefono:['',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]],
       direccion:['',[Validators.required]],
       reputacion:[''],
+      email:[''],
       referencia:['',[Validators.required]]
     });
     this.storageRef= firebase.storage().ref();
@@ -57,7 +59,8 @@ export class InfoProfilePage {
           console.log("cargando........")
           },(err)=>console.log(err),()=>{
             this.imgprofile=uploadTask.snapshot.downloadURL;
-            console.log(this.imgprofile);
+            this.info_profile.img_profile=uploadTask.snapshot.downloadURL;
+            this.info_profile.email=auth.email;
           });
       });
     });
