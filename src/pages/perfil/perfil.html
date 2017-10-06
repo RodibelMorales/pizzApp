@@ -17,7 +17,8 @@
   <ion-card>
     <ion-item>
       <ion-avatar item-start>
-        <img src="assets/imgs/rodibel.jpg">
+        <div class="avatar" [style.background-image]="'url(' + (profileData | async)?.img_profile + ')'"></div>
+        
       </ion-avatar>
       <h2>{{(profileData | async)?.nombre}} {{(profileData | async)?.ap_paterno}}</h2>
         <div class="reputacion">
@@ -31,7 +32,7 @@
     <ion-card-content>
       <div class="border-bottom-profileInfo">
           <h2>Email</h2>
-          <p>{{email}}</p>
+          <p>{{(profileData | async)?.email}}</p>
       </div>
       <div class="border-bottom-profileInfo">     
         <h2>Telefono</h2>

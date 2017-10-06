@@ -1,5 +1,6 @@
 page-perfil {
     $marginBloqueInfo: 20px;
+    $marginLR:auto;
     .card h2 {
         margin: 2px 0;
         font-size: 1.6rem;
@@ -13,4 +14,14 @@ page-perfil {
     .bloque-info{
         margin-top: $marginBloqueInfo;
     }
+    .avatar {
+        height:50px;
+        width: 50px;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 50%;
+        background-size: 100% auto;
+        margin-left: $marginLR;
+        margin-right: $marginLR;
+    }  
 }
