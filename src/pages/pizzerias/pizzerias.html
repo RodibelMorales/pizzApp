@@ -12,29 +12,16 @@
 
 
 <ion-content >
-  <ion-card>
+  <ion-card *ngFor="let item of listPizzerias | async">
     <img src="assets/imgs/dominos.jpg"/>
     <ion-card-content>
       <ion-card-title>
-        Domino's Pizza
+        {{item.nombre}}
         </ion-card-title>
       <p>
-        La mejor pizza segun la mercadotecnia.
+        {{item.menu_pizzeria.producto_1.ingredientes}}
       </p>
       <button ion-button block  color="calltoaction" [navPush]="menupizzeria">VER MENU</button>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <img src="assets/imgs/dominos.jpg"/>
-    <ion-card-content>
-      <ion-card-title>
-        Domino's Pizza
-        </ion-card-title>
-      <p>
-        La mejor pizza segun la mercadotecnia.
-      </p>
-      <button ion-button block color="calltoaction" [navPush]="menupizzeria">VER MENU</button>
     </ion-card-content>
   </ion-card>  
 </ion-content>
