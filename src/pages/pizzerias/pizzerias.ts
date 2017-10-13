@@ -28,7 +28,6 @@ export class PizzeriasPage {
     console.log(this.listadoPizzerias());
   }
   listadoPizzerias(){
-    this.listPizzerias=this.database.list('Pizzerias/');
-    
+    this.listPizzerias=this.database.list('Pizzerias/')
   }
 }

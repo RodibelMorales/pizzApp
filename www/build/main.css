@@ -27673,6 +27673,20 @@ page-perfil .avatar {
   margin-right: auto;
 }
 
+page-pizzerias ion-card-title {
+  font-weight: bold;
+  padding: 0px 0 !important;
+}
+
+page-pizzerias .infoDetails {
+  display: inline-block;
+  width: 49%;
+}
+
+page-pizzerias .infoDetails label {
+  font-weight: bold;
+}
+
 page-registro-login ion-item {
   padding-left: 0px !important;
 }

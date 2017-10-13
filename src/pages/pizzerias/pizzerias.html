@@ -13,14 +13,20 @@
 
 <ion-content >
   <ion-card *ngFor="let item of listPizzerias | async">
-    <img src="assets/imgs/dominos.jpg"/>
+    <img src="{{item.logo}}"/>
     <ion-card-content>
       <ion-card-title>
         {{item.nombre}}
-        </ion-card-title>
-      <p>
-        {{item.menu_pizzeria.producto_1.ingredientes}}
-      </p>
+      </ion-card-title>
+      <p class="infoDireccion">{{item.direccion}}</p>
+      <div class="infoDetails">
+        <label>Telefono:</label>
+        <p>{{item.telefono}}</p>
+      </div>
+      <div class="infoDetails">
+        <label>Horarios:</label>
+        <p class="infoHorarios">{{item.abre}} AM -- {{item.cierra}} PM</p>
+      </div>
       <button ion-button block  color="calltoaction" [navPush]="menupizzeria">VER MENU</button>
     </ion-card-content>
   </ion-card>  
