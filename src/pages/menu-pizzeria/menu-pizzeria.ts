@@ -6,7 +6,7 @@ import { AngularFireDatabase,FirebaseObjectObservable } from 'angularfire2/datab
   templateUrl: 'menu-pizzeria.html',
 })
 export class MenuPizzeriaPage {
-
+  
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
