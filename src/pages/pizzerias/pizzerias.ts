@@ -10,6 +10,7 @@ import {PerfilPage}    from '../perfil/perfil';
 /*imports para mostrar mensaje iniciar y optener info de firebase*/
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase,FirebaseListObservable } from 'angularfire2/database';
+import {PizzeriasItems} from '../../models/pizzerias-items';
 import * as firebase from 'firebase/app';
 @IonicPage()
 @Component({
@@ -18,16 +19,17 @@ import * as firebase from 'firebase/app';
 })
 export class PizzeriasPage {
   menupizzeria=MenuPizzeriaPage;
-  listPizzerias:FirebaseListObservable<any>;
+  listPizzerias:FirebaseListObservable<PizzeriasItems[]>;
 
   constructor(private auth:AngularFireAuth,private toast:ToastController,public navCtrl:NavController,public navParams: NavParams,private database:AngularFireDatabase) {
+    this.listPizzerias=this.database.list('Pizzerias/');
   }
 
   ionViewDidLoad() {
     console.log("vista del listado pizza");
-    console.log(this.listadoPizzerias());
+    //console.log(this.listadoPizzerias());
   }
-  listadoPizzerias(){
-    this.listPizzerias=this.database.list('Pizzerias/')
+  showMenuPizzeria(pizzeriasItems:PizzeriasItems){
+    this.navCtrl.push(MenuPizzeriaPage,{pizzeriaID:pizzeriasItems.$key})
   }
 }

@@ -1,4 +1,5 @@
-export interface info_profile{
+export interface PizzeriasItems{
+    $key?:string;
     abre :string;
     cierra :string;
     direccion:string;

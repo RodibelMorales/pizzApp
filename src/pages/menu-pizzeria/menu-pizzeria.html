@@ -13,48 +13,15 @@
 
 <ion-content >
   <ion-list>
-    <ion-item>
+    <ion-item *ngFor="let producto of menuPizzerias | async">
       <ion-thumbnail item-start>
         <img src="assets/imgs/pizza-demo.jpg">
       </ion-thumbnail>
-      <h1>Pizza bien chida</h1>
-      <h2>$149.00 pesos</h2>
-      <p>Deliciosa combinación de Piña Jamón y Tocino</p>
+      <h1>{{producto.nombre}}</h1>
+      <h2>${{producto.precio}}</h2>
+      <p>{{producto.ingredientes}}</p>
       <button ion-button outline  color="calltoaction">Detalles</button>
       <button ion-button outline  color="calltoaction"><ion-icon name="basket"></ion-icon>Ordenar Ahora</button>
-    </ion-item>
-
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img src="assets/imgs/pizza-demo2.jpg">
-      </ion-thumbnail>
-      <h1>Pizza bien chida</h1>
-      <h2>$149.00 pesos</h2>
-      <p>La clásica hawaiiana con un toque picosito de delicioso pico de gallo</p>
-      <button ion-button outline  color="calltoaction" >Detalles</button>
-      <button ion-button outline  color="calltoaction" ><ion-icon name="basket"></ion-icon>Ordenar Ahora</button>
-    </ion-item>
-
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img src="assets/imgs/pizza-demo3.jpg">
-      </ion-thumbnail>
-      <h1>Pizza bien chida</h1>
-      <h2>$149.00 pesos</h2>
-      <p>Todos los favoritos en uno, Pepperoni, Piña y Salsa BBQ</p>
-      <button ion-button outline  color="calltoaction" >Detalles</button>
-      <button ion-button outline  color="calltoaction" ><ion-icon name="basket"></ion-icon>Ordenar Ahora</button>
-    </ion-item>
-
-    <ion-item>
-      <ion-thumbnail item-start>
-        <img src="assets/imgs/pizza-demo4.jpg">
-      </ion-thumbnail>
-      <h1>Pizza bien chida</h1>
-      <h2>$149.00 pesos</h2>
-      <p>Simplemente la mejor combinación: Pepperoni y Champiñones</p>
-      <button ion-button outline  color="calltoaction" >Detalles</button>
-      <button ion-button outline  color="calltoaction" ><ion-icon name="basket"></ion-icon>Ordenar Ahora</button>
-    </ion-item>    
+    </ion-item>   
   </ion-list>
 </ion-content>
