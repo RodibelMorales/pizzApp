@@ -13,13 +13,13 @@
 
 <ion-content >
   <ion-list>
-    <ion-item *ngFor="let producto of menuPizzerias | async">
+    <ion-item>
       <ion-thumbnail item-start>
         <img src="assets/imgs/pizza-demo.jpg">
       </ion-thumbnail>
-      <h1>{{producto.nombre}}</h1>
-      <h2>${{producto.precio}}</h2>
-      <p>{{producto.ingredientes}}</p>
+      <h1>la pizza</h1>
+      <h2>$125.00</h2>
+      <p>hola</p>
       <button ion-button outline  color="calltoaction">Detalles</button>
       <button ion-button outline  color="calltoaction"><ion-icon name="basket"></ion-icon>Ordenar Ahora</button>
     </ion-item>   
