@@ -8,18 +8,15 @@ import {PizzeriasItems} from '../../models/pizzerias-items';
   templateUrl: 'menu-pizzeria.html',
 })
 export class MenuPizzeriaPage {
-  menuPizzerias:FirebaseListObservable<PizzeriasItems[]>;
+  menuPizzas:FirebaseListObservable<PizzeriasItems[]>;
+  nombrePizzeria:string;
+  //menuPizzas={} as PizzeriasItems;
   constructor(public navCtrl: NavController, public navParams: NavParams,private database:AngularFireDatabase) {
     const pizzeriaID =this.navParams.get('pizzeriaID'); 
-    console.log(pizzeriaID);
-    this.database.list(`Pizzerias/${pizzeriaID}/menu_pizzeria`,{preserveSnapshot:true})
-      .subscribe(snapshots => {
-        snapshots.forEach(snapshot=>{
-          //console.log(snapshot.key,snapshot.val());
-          this.menuPizzerias=snapshot.key,snapshot.val();
-        });
-      });
-    console.log(this.menuPizzerias);
+    this.nombrePizzeria=this.navParams.get('nombrePizzeria');
+    this.menuPizzas=this.database.list(`Pizzerias/${pizzeriaID}/menu_pizzeria/`);   
+    console.log(this.menuPizzas);
+    console.log(this.nombrePizzeria);
   }
 
   ionViewDidLoad() {

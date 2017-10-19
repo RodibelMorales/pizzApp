@@ -29,7 +29,7 @@ export class PizzeriasPage {
     console.log("vista del listado pizza");
     //console.log(this.listadoPizzerias());
   }
-  showMenuPizzeria(pizzeriasItems:PizzeriasItems){
-    this.navCtrl.push(MenuPizzeriaPage,{pizzeriaID:pizzeriasItems.$key})
+  showMenuPizzeria(pizzeriasItems:PizzeriasItems,nombrePizzeria){
+    this.navCtrl.push(MenuPizzeriaPage,{pizzeriaID:pizzeriasItems.$key,nombrePizzeria:nombrePizzeria})
   }
 }

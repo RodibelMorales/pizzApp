@@ -6,14 +6,14 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>Domino´s Pizza</ion-title>
+    <ion-title>{{nombrePizzeria}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content >
   <ion-list>
-    <ion-item *ngFor="let producto of menuPizzerias | async">
+    <ion-item *ngFor="let producto of menuPizzas | async">
       <ion-thumbnail item-start>
         <img src="assets/imgs/pizza-demo.jpg">
       </ion-thumbnail>
