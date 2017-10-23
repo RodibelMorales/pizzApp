@@ -27494,7 +27494,7 @@ ion-navbar.toolbar {
 }
 
 .toolbar-background {
-  background-color: #E64C4C;
+  background-color: #D32F2F;
 }
 
 .toolbar-title {
@@ -27503,7 +27503,7 @@ ion-navbar.toolbar {
 
 /*Estilos para el footer*/
 .tabs .tabbar {
-  background: #e64c4c;
+  background: #D32F2F;
 }
 
 /*Estilos para los textos del footerbar*/
@@ -27522,6 +27522,17 @@ ion-navbar.toolbar {
 
 .tabs .tab-button-icon {
   color: rgba(255, 255, 255, 0.49);
+}
+
+page-about .btnremove {
+  position: absolute;
+  right: 15px;
+  top: 25px;
+  background: rgba(211, 47, 47, 0);
+  color: #d32f2f;
+  width: 45px;
+  height: 35px;
+  font-size: 20pt;
 }
 
 page-info-profile textarea {

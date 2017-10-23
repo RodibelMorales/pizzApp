@@ -7,6 +7,7 @@ import { info_profile } from './../../models/info_profile';
 import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
+
 @IonicPage()
 @Component({
   selector: 'page-login',

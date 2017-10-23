@@ -14,7 +14,7 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
-$colorgeneral:#E64C4C;
+$colorgeneral:#D32F2F;
 
 .toolbar-background{
     background-color:$colorgeneral;
@@ -24,7 +24,7 @@ $colorgeneral:#E64C4C;
 }
 /*Estilos para el footer*/
 .tabs .tabbar {
-    background: #e64c4c;
+    background: $colorgeneral;
 }
     /*Estilos para los textos del footerbar*/
     .tabs .tab-button[aria-selected=true]{

@@ -1,11 +1,20 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      Mi pedido
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let pedido of pedidos">
+      <ion-avatar item-start>
+        <img src="assets/imgs/pizza-demo.jpg">
+      </ion-avatar>
+      <h1>{{pedido.nombreProducto}}</h1>
+      <h2>${{pedido.precio}}</h2>
+      <button class="btnremove" (click)="deleteItem(pedido.id)"><ion-icon name="remove-circle" class="removeItem" (clik)="deleteItem(pedido.id)"></ion-icon></button>
+    </ion-item>   
+  </ion-list>
 </ion-content>

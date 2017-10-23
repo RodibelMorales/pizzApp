@@ -9,8 +9,6 @@
     <ion-title>{{nombrePizzeria}}</ion-title>
   </ion-navbar>
 </ion-header>
-
-
 <ion-content >
   <ion-list>
     <ion-item *ngFor="let producto of menuPizzas | async">
@@ -20,8 +18,7 @@
       <h1>{{producto.nombre}}</h1>
       <h2>${{producto.precio}}</h2>
       <p>{{producto.ingredientes}}</p>
-      <button ion-button outline  color="calltoaction">Detalles</button>
-      <button ion-button outline  color="calltoaction"><ion-icon name="basket"></ion-icon>Ordenar Ahora</button>
+      <button ion-button outline  color="calltoaction" (click)="addToCart(producto.nombre,producto.precio)">Agregar al carrito <ion-icon name="cart"></ion-icon></button>
     </ion-item>   
   </ion-list>
 </ion-content>
