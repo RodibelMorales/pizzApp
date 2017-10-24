@@ -11,6 +11,7 @@
 </ion-header>
 <ion-content >
   <ion-list>
+<<<<<<< HEAD
     <ion-item *ngFor="let producto of menuPizzas | async">
       <ion-thumbnail item-start>
         <img src="assets/imgs/pizza-demo.jpg">
@@ -19,6 +20,17 @@
       <h2>${{producto.precio}}</h2>
       <p>{{producto.ingredientes}}</p>
       <button ion-button outline  color="calltoaction" (click)="addToCart(producto.nombre,producto.precio)">Agregar al carrito <ion-icon name="cart"></ion-icon></button>
+=======
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="assets/imgs/pizza-demo.jpg">
+      </ion-thumbnail>
+      <h1>la pizza</h1>
+      <h2>$125.00</h2>
+      <p>hola</p>
+      <button ion-button outline  color="calltoaction">Detalles</button>
+      <button ion-button outline  color="calltoaction"><ion-icon name="basket"></ion-icon>Ordenar Ahora</button>
+>>>>>>> cfe608bbe767652329ebedc59bdc12f6fe3f6ac7
     </ion-item>   
   </ion-list>
 </ion-content>

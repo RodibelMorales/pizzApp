@@ -17,7 +17,6 @@ export class PerfilPage {
 
   ionViewDidLoad() {
     console.log('cargando vista perfil');
-
   }
   getInfoProfile(){
     try{
