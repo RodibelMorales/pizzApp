@@ -39,8 +39,9 @@ export class carritoPizzas implements pizzeriaCarritoItems{
     save(){
         return db.pedidos.add(this);
     }
-    removeItem(){
-        return db.pedidos.delete(this.id); 
+    removeItem(id){
+        console.log(id);
+        return db.pedidos.delete(id); 
     }
     //muestra todos los registros de la DB
     static all(){

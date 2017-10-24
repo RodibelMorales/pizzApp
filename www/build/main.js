@@ -406,10 +406,9 @@ MenuPizzeriaPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-menu-pizzeria',template:/*ion-inline-start:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\menu-pizzeria\menu-pizzeria.html"*/'<!--\n\n  Generated template for the MenuPizzeriaPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>{{nombrePizzeria}}</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content >\n\n  <ion-list>\n\n    <ion-item *ngFor="let producto of menuPizzas | async">\n\n      <ion-thumbnail item-start>\n\n        <img src="assets/imgs/pizza-demo.jpg">\n\n      </ion-thumbnail>\n\n      <h1>{{producto.nombre}}</h1>\n\n      <h2>${{producto.precio}}</h2>\n\n      <p>{{producto.ingredientes}}</p>\n\n      <button ion-button outline  color="calltoaction" (click)="addToCart(producto.nombre,producto.precio)">Agregar al carrito <ion-icon name="cart"></ion-icon></button>\n\n    </ion-item>   \n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\menu-pizzeria\menu-pizzeria.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */]])
 ], MenuPizzeriaPage);
 
-var _a, _b, _c;
 //# sourceMappingURL=menu-pizzeria.js.map
 
 /***/ }),
@@ -458,8 +457,9 @@ var carritoPizzas = (function () {
     carritoPizzas.prototype.save = function () {
         return db.pedidos.add(this);
     };
-    carritoPizzas.prototype.removeItem = function () {
-        return db.pedidos.delete(this.id);
+    carritoPizzas.prototype.removeItem = function (id) {
+        console.log(id);
+        return db.pedidos.delete(id);
     };
     //muestra todos los registros de la DB
     carritoPizzas.all = function () {
@@ -637,15 +637,17 @@ var AboutPage = (function () {
         __WEBPACK_IMPORTED_MODULE_2__database__["a" /* carritoPizzas */].all().then(function (data) { _this.pedidos = data; });
     };
     AboutPage.prototype.deleteItem = function (idItem) {
-        console.log(idItem);
-        var removeItem = new __WEBPACK_IMPORTED_MODULE_2__database__["a" /* carritoPizzas */](idItem);
-        removeItem.removeItem();
+        this.pedidos = this.pedidos.filter(function (w) {
+            return w.id != idItem;
+        });
+        var removeItem = new __WEBPACK_IMPORTED_MODULE_2__database__["a" /* carritoPizzas */]();
+        removeItem.removeItem(idItem);
     };
     return AboutPage;
 }());
 AboutPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-about',template:/*ion-inline-start:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\about\about.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Mi pedido\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-list>\n\n    <ion-item *ngFor="let pedido of pedidos">\n\n      <ion-avatar item-start>\n\n        <img src="assets/imgs/pizza-demo.jpg">\n\n      </ion-avatar>\n\n      <h1>{{pedido.nombreProducto}}</h1>\n\n      <h2>${{pedido.precio}}</h2>\n\n      <button class="btnremove" (click)="deleteItem(pedido.id)"><ion-icon name="remove-circle" class="removeItem" (clik)="deleteItem(pedido.id)"></ion-icon></button>\n\n    </ion-item>   \n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\about\about.html"*/
+        selector: 'page-about',template:/*ion-inline-start:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\about\about.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Mi pedido\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-list>\n\n    <ion-item *ngIf="pedidos == \'\' ">\n\n        <div class="msjNoItems">\n\n          <h1 class="sinItems"> <ion-icon name="sad"></ion-icon> Aún no pides una pizza</h1>\n\n        </div>\n\n    </ion-item>\n\n    <ion-item *ngFor="let pedido of pedidos">\n\n      <ion-avatar item-start>\n\n        <img src="assets/imgs/pizza-demo.jpg">\n\n      </ion-avatar>\n\n      <h1>{{pedido.nombreProducto}}</h1>\n\n      <h2>${{pedido.precio}}</h2>\n\n      <button class="btnremove" (click)="deleteItem(pedido.id)"><ion-icon name="remove-circle" class="removeItem" (clik)="deleteItem(pedido.id)"></ion-icon></button>\n\n    </ion-item>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\about\about.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]])
 ], AboutPage);

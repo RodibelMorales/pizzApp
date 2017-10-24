@@ -17,8 +17,10 @@ export class AboutPage {
     carritoPizzas.all().then((data)=>{this.pedidos=data;});
   }
   deleteItem(idItem){
-    console.log(idItem);
-    let removeItem = new carritoPizzas(idItem);
-    removeItem.removeItem();
+    this.pedidos=this.pedidos.filter(w=>{
+      return w.id != idItem;
+    });
+    let removeItem = new carritoPizzas();
+    removeItem.removeItem(idItem);
   }
 }

@@ -27535,6 +27535,22 @@ page-about .btnremove {
   font-size: 20pt;
 }
 
+page-about h1.sinItems {
+  font-size: 14pt;
+  /* margin-top: auto; */
+  /* margin-bottom: auto; */
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+page-about .msjNoItems {
+  /* margin-top: auto; */
+  display: table;
+  width: 100%;
+  height: 320px;
+}
+
 page-info-profile textarea {
   resize: none;
 }

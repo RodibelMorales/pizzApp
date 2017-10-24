@@ -88,13 +88,13 @@ var TabsPage = (function () {
                 if (data && data.email && data.uid) {
                     _this.toast.create({
                         message: "Bienvenido " + data.email,
-                        duration: 5000
+                        duration: 3000
                     }).present();
                 }
                 else {
                     _this.toast.create({
                         message: "Upps no haz iniciado sesion",
-                        duration: 5000
+                        duration: 3000
                     }).present();
                 }
             });

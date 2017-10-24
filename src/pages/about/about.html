@@ -8,6 +8,11 @@
 
 <ion-content>
   <ion-list>
+    <ion-item *ngIf="pedidos == '' ">
+        <div class="msjNoItems">
+          <h1 class="sinItems"> <ion-icon name="sad"></ion-icon> Aún no pides una pizza</h1>
+        </div>
+    </ion-item>
     <ion-item *ngFor="let pedido of pedidos">
       <ion-avatar item-start>
         <img src="assets/imgs/pizza-demo.jpg">
@@ -15,6 +20,6 @@
       <h1>{{pedido.nombreProducto}}</h1>
       <h2>${{pedido.precio}}</h2>
       <button class="btnremove" (click)="deleteItem(pedido.id)"><ion-icon name="remove-circle" class="removeItem" (clik)="deleteItem(pedido.id)"></ion-icon></button>
-    </ion-item>   
+    </ion-item>
   </ion-list>
 </ion-content>

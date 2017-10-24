@@ -32,12 +32,12 @@ export class TabsPage {
         if(data && data.email && data.uid){
           this.toast.create({
             message: `Bienvenido ${data.email}`,
-            duration:5000
+            duration:3000
           }).present();
         }else{
           this.toast.create({
             message: `Upps no haz iniciado sesion`,
-            duration:5000
+            duration:3000
           }).present();
         }
       });
