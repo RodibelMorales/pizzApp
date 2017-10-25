@@ -272,27 +272,27 @@ webpackEmptyAsyncContext.id = 148;
 
 var map = {
 	"../pages/info-profile/info-profile.module": [
-		417,
+		418,
 		0
 	],
 	"../pages/login/login.module": [
-		414,
+		415,
 		5
 	],
 	"../pages/perfil/perfil.module": [
-		415,
+		416,
 		4
 	],
 	"../pages/pizzerias/pizzerias.module": [
-		416,
+		417,
 		3
 	],
 	"../pages/registro-login/registro-login.module": [
-		413,
+		414,
 		2
 	],
 	"../pages/tabs/tabs.module": [
-		418,
+		419,
 		1
 	]
 };
@@ -369,6 +369,7 @@ Authentication = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__database__ = __webpack_require__(232);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__servicios_localstoragePedido__ = __webpack_require__(384);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -382,11 +383,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var MenuPizzeriaPage = (function () {
     //menuPizzas={} as PizzeriasItems;
-    function MenuPizzeriaPage(navCtrl, navParams, database) {
+    function MenuPizzeriaPage(navCtrl, navParams, alertCtrl, database) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.alertCtrl = alertCtrl;
         this.database = database;
         var pizzeriaID = this.navParams.get('pizzeriaID');
         this.nombrePizzeria = this.navParams.get('nombrePizzeria');
@@ -396,9 +399,32 @@ var MenuPizzeriaPage = (function () {
         console.log('ionViewDidLoad MenuPizzeriaPage');
     };
     MenuPizzeriaPage.prototype.addToCart = function (nombre, precio) {
+        //Instancia para verificar que no existan una pizzeria con ordenes
+        var checkPizzeria = new __WEBPACK_IMPORTED_MODULE_4__servicios_localstoragePedido__["a" /* localStorageCRUD */]();
+        //Añade el item al carrito
         var nuevoPedido = new __WEBPACK_IMPORTED_MODULE_3__database__["a" /* carritoPizzas */](this.nombrePizzeria, nombre, "http://prensalibreformosa.com/wp-content/uploads/2017/08/pizza-casera.jpg", precio, 0);
-        nuevoPedido.save();
-        console.log(nombre + "----" + precio);
+        if (checkPizzeria.getNamePizzeriaLocalStorage() == null) {
+            console.log("no existe la pizzeria, la vamos a crear en LocalStorage");
+            checkPizzeria.setNamePizzeriaLocalStorage(this.nombrePizzeria);
+            nuevoPedido.save();
+        }
+        else {
+            console.log(checkPizzeria.getNamePizzeriaLocalStorage());
+            if (checkPizzeria.getNamePizzeriaLocalStorage() != this.nombrePizzeria) {
+                this.showAlert(checkPizzeria.getNamePizzeriaLocalStorage());
+            }
+            else {
+                nuevoPedido.save();
+            }
+        }
+    };
+    MenuPizzeriaPage.prototype.showAlert = function (nombrePizzeria) {
+        var alert = this.alertCtrl.create({
+            title: 'Upps!',
+            subTitle: 'Debes finalizar tu pedido con <span class="pizzeriaNameAlert">' + nombrePizzeria + '</span> para realizar uno nuevo aquí',
+            buttons: ['OK']
+        });
+        alert.present();
     };
     return MenuPizzeriaPage;
 }());
@@ -406,7 +432,7 @@ MenuPizzeriaPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-menu-pizzeria',template:/*ion-inline-start:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\menu-pizzeria\menu-pizzeria.html"*/'<!--\n\n  Generated template for the MenuPizzeriaPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>{{nombrePizzeria}}</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content >\n\n  <ion-list>\n\n    <ion-item *ngFor="let producto of menuPizzas | async">\n\n      <ion-thumbnail item-start>\n\n        <img src="assets/imgs/pizza-demo.jpg">\n\n      </ion-thumbnail>\n\n      <h1>{{producto.nombre}}</h1>\n\n      <h2>${{producto.precio}}</h2>\n\n      <p>{{producto.ingredientes}}</p>\n\n      <button ion-button outline  color="calltoaction" (click)="addToCart(producto.nombre,producto.precio)">Agregar al carrito <ion-icon name="cart"></ion-icon></button>\n\n    </ion-item>   \n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\menu-pizzeria\menu-pizzeria.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */]])
 ], MenuPizzeriaPage);
 
 //# sourceMappingURL=menu-pizzeria.js.map
@@ -589,6 +615,7 @@ var PizzeriasPage = (function () {
         //console.log(this.listadoPizzerias());
     };
     PizzeriasPage.prototype.showMenuPizzeria = function (pizzeriasItems, nombrePizzeria) {
+        console.log(pizzeriasItems, nombrePizzeria);
         this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_2__menu_pizzeria_menu_pizzeria__["a" /* MenuPizzeriaPage */], { pizzeriaID: pizzeriasItems.$key, nombrePizzeria: nombrePizzeria });
     };
     return PizzeriasPage;
@@ -637,9 +664,7 @@ var AboutPage = (function () {
         __WEBPACK_IMPORTED_MODULE_2__database__["a" /* carritoPizzas */].all().then(function (data) { _this.pedidos = data; });
     };
     AboutPage.prototype.deleteItem = function (idItem) {
-        this.pedidos = this.pedidos.filter(function (w) {
-            return w.id != idItem;
-        });
+        this.pedidos = this.pedidos.filter(function (w) { return w.id != idItem; });
         var removeItem = new __WEBPACK_IMPORTED_MODULE_2__database__["a" /* carritoPizzas */]();
         removeItem.removeItem(idItem);
     };
@@ -666,7 +691,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase_app__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_firebase_app__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__enviroment_firebase_config__ = __webpack_require__(276);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_take__ = __webpack_require__(410);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_take__ = __webpack_require__(411);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_take___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_take__);
 
 
@@ -689,7 +714,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(401);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(402);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_pizzerias_pizzerias__ = __webpack_require__(278);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_menu_pizzeria_menu_pizzeria__ = __webpack_require__(231);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_about_about__ = __webpack_require__(279);
@@ -784,7 +809,44 @@ AppModule = __decorate([
 
 /***/ }),
 
-/***/ 401:
+/***/ 384:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export KeyLocalstorage */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return localStorageCRUD; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var KeyLocalstorage = "nombrePizzeria";
+var localStorageCRUD = (function () {
+    function localStorageCRUD() {
+    }
+    localStorageCRUD.prototype.setNamePizzeriaLocalStorage = function (nombrePizzeria) {
+        localStorage.setItem(KeyLocalstorage, nombrePizzeria);
+    };
+    localStorageCRUD.prototype.getNamePizzeriaLocalStorage = function () {
+        return localStorage.getItem(KeyLocalstorage);
+    };
+    localStorageCRUD.prototype.removeNamePizzeriaLocalStorage = function (nombrePizzeria) {
+        localStorage.removeItem(KeyLocalstorage);
+    };
+    return localStorageCRUD;
+}());
+localStorageCRUD = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])()
+], localStorageCRUD);
+
+//# sourceMappingURL=localstoragePedido.js.map
+
+/***/ }),
+
+/***/ 402:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

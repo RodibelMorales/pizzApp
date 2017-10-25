@@ -27524,6 +27524,12 @@ ion-navbar.toolbar {
   color: rgba(255, 255, 255, 0.49);
 }
 
+span.pizzeriaNameAlert {
+  font-weight: bold !important;
+  color: #d82b1f !important;
+  text-transform: uppercase !important;
+}
+
 page-about .btnremove {
   position: absolute;
   right: 15px;

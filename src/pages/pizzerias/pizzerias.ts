@@ -30,6 +30,7 @@ export class PizzeriasPage {
     //console.log(this.listadoPizzerias());
   }
   showMenuPizzeria(pizzeriasItems:PizzeriasItems,nombrePizzeria){
+    console.log(pizzeriasItems,nombrePizzeria);
     this.navCtrl.push(MenuPizzeriaPage,{pizzeriaID:pizzeriasItems.$key,nombrePizzeria:nombrePizzeria})
   }
 }

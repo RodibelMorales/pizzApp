@@ -17,9 +17,7 @@ export class AboutPage {
     carritoPizzas.all().then((data)=>{this.pedidos=data;});
   }
   deleteItem(idItem){
-    this.pedidos=this.pedidos.filter(w=>{
-      return w.id != idItem;
-    });
+    this.pedidos=this.pedidos.filter(w=>{ return w.id != idItem; });
     let removeItem = new carritoPizzas();
     removeItem.removeItem(idItem);
   }
