@@ -11,5 +11,4 @@ export class localStorageCRUD{
     removeNamePizzeriaLocalStorage(nombrePizzeria){
         localStorage.removeItem(KeyLocalstorage);
     }
-
 }
