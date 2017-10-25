@@ -42,8 +42,8 @@ InfoProfilePageModule = __decorate([
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -121,8 +121,8 @@ function isNativeBlobDefined() {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -158,7 +158,7 @@ exports.internalError = internalError;
 
 var _constants = __webpack_require__(423);
 
-var FirebaseStorageError = /** @class */function () {
+var FirebaseStorageError = function () {
     function FirebaseStorageError(code, message) {
         this.code_ = prependCode(code);
         this.message_ = 'Firebase Storage: ' + message;
@@ -352,8 +352,8 @@ function internalError(message) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -412,8 +412,8 @@ function reject(error) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -471,8 +471,8 @@ function clone(obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -545,8 +545,8 @@ var minSafeInteger = exports.minSafeInteger = -9007199254740991;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -565,7 +565,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 /**
  * @struct
  */
-var Location = /** @class */function () {
+var Location = function () {
     function Location(bucket, path) {
         this.bucket = bucket;
         this.path_ = path;
@@ -668,8 +668,8 @@ exports.Location = Location;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -726,7 +726,7 @@ function formatValidator(stringFormat) {
 /**
  * @struct
  */
-var StringData = /** @class */function () {
+var StringData = function () {
     function StringData(data, opt_contentType) {
         this.data = data;
         this.contentType = opt_contentType || null;
@@ -830,7 +830,7 @@ function base64Bytes_(format, string) {
 /**
  * @struct
  */
-var DataURLParts = /** @class */function () {
+var DataURLParts = function () {
     function DataURLParts(dataURL) {
         this.base64 = false;
         this.contentType = null;
@@ -875,8 +875,8 @@ function endsWith(s, end) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -957,7 +957,7 @@ function validate(name, specs, passed) {
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-var ArgSpec = /** @class */function () {
+var ArgSpec = function () {
     function ArgSpec(validator, opt_optional) {
         var self = this;
         this.validator = function (p) {
@@ -1042,8 +1042,8 @@ function nullFunctionSpec(opt_optional) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -1102,7 +1102,7 @@ function noXform_(metadata, value) {
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-var Mapping = /** @class */function () {
+var Mapping = function () {
     function Mapping(server, opt_local, opt_writable, opt_xform) {
         this.server = server;
         this.local = opt_local || server;
@@ -1256,8 +1256,8 @@ function metadataValidator(p) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -1327,8 +1327,8 @@ function makeQueryString(params) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -1388,8 +1388,8 @@ function remove(array, elem) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -1466,8 +1466,8 @@ function taskStateFromInternalTaskState(state) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -1508,8 +1508,8 @@ var ErrorCode = exports.ErrorCode = undefined;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -1588,7 +1588,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 /**
  * @fileoverview Defines the Firebase Storage Reference class.
  */
-var Reference = /** @class */function () {
+var Reference = function () {
     function Reference(authWrapper, location) {
         this.authWrapper = authWrapper;
         if (location instanceof _location.Location) {
@@ -1791,8 +1791,8 @@ exports.Reference = Reference;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -1868,8 +1868,8 @@ function lastComponent(path) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -1918,7 +1918,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
  * native Blob type). This makes it possible to upload types like ArrayBuffers,
  * making uploads possible in environments without the native Blob type.
  */
-var FbsBlob = /** @class */function () {
+var FbsBlob = function () {
     function FbsBlob(data, opt_elideCopy) {
         var size = 0;
         var blobType = '';
@@ -2017,8 +2017,8 @@ exports.FbsBlob = FbsBlob;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -2222,7 +2222,7 @@ function multipartUpload(authWrapper, location, mappings, blob, opt_metadata) {
  *     only be passed if opt_finalized is true.
  * @struct
  */
-var ResumableUploadStatus = /** @class */function () {
+var ResumableUploadStatus = function () {
     function ResumableUploadStatus(current, total, finalized, metadata) {
         this.current = current;
         this.total = total;
@@ -2383,11 +2383,7 @@ function continueResumableUpload(location, authWrapper, url, blob, chunkSize, ma
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(42);
-<<<<<<< HEAD
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__ = __webpack_require__(51);
-=======
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_angularfire2_database__ = __webpack_require__(50);
->>>>>>> cfe608bbe767652329ebedc59bdc12f6fe3f6ac7
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase_app__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_firebase_app__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase_storage__ = __webpack_require__(437);
@@ -2461,7 +2457,7 @@ var InfoProfilePage = (function () {
 InfoProfilePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-info-profile',template:/*ion-inline-start:"C:\xampp\htdocs\pizzApp\src\pages\info-profile\info-profile.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Informacion de tu perfil</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n  <form [formGroup]="validaInfoProfile" (ngSubmit)="infoProfile()" novalidate>\n\n    <ion-list>\n\n      <!--Bloque para añadir una imagen a firebase y crear la info adicional-->\n\n        <ion-item>\n\n          <div class="divBeforeUpload" *ngIf="!imgprofile; else addedImg">\n\n            <div class="Divtitlefoto" >\n\n              <span>Mi</span> \n\n              <span>Foto de</span>\n\n              <span>Perfil</span>\n\n            </div>\n\n            <input type="file" class="uploadBtn" (change)="uploadImgProfile($event)">\n\n          </div>\n\n          <ng-template #addedImg>\n\n            <div class="divAfterUpload">\n\n              <div class="avatar" [style.background-image]="\'url(\' + imgprofile + \')\'"></div>\n\n            </div>\n\n          </ng-template>\n\n        </ion-item>   \n\n      <!--Bloque para ingresar el usuario-->\n\n        <ion-item>\n\n          <ion-label>Nombre:</ion-label>\n\n          <ion-input type="text" [(ngModel)]="info_profile.nombre" formControlName="nombre"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="validaInfoProfile.get(\'nombre\').errors && validaInfoProfile.get(\'nombre\').dirty">\n\n          <p color="danger" ion-text *ngIf="validaInfoProfile.get(\'nombre\').hasError(\'required\')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>\n\n          <p color="danger" ion-text *ngIf="validaInfoProfile.get(\'nombre\').hasError(\'pattern\')"><ion-icon name="close-circle"></ion-icon> solo se adapmite texto</p>\n\n        </ion-item>\n\n      <!--Bloque para ingresar el usuario-->\n\n        <ion-item>\n\n          <ion-label>Apellidos:</ion-label>\n\n          <ion-input type="text" [(ngModel)]="info_profile.ap_paterno" formControlName="ap_paterno"></ion-input>\n\n          <ion-input type="text" [(ngModel)]="info_profile.ap_materno" formControlName="ap_materno" class="a_materno"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="validaInfoProfile.get(\'ap_paterno\').errors && validaInfoProfile.get(\'ap_paterno\').dirty">\n\n          <p color="danger" ion-text *ngIf="validaInfoProfile.get(\'ap_paterno\').hasError(\'required\')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>\n\n          <p color="danger" ion-text *ngIf="validaInfoProfile.get(\'ap_paterno\').hasError(\'pattern\')"><ion-icon name="close-circle"></ion-icon> solo se adapmite texto</p>\n\n        </ion-item>\n\n        <ion-item *ngIf="validaInfoProfile.get(\'ap_materno\').errors && validaInfoProfile.get(\'ap_materno\').dirty">\n\n          <p color="danger" ion-text *ngIf="validaInfoProfile.get(\'ap_materno\').hasError(\'required\')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>\n\n          <p color="danger" ion-text *ngIf="validaInfoProfile.get(\'ap_materno\').hasError(\'pattern\')"><ion-icon name="close-circle"></ion-icon> solo se adapmite texto</p>\n\n        </ion-item>\n\n      <!--Bloque para ingresar el telefono-->\n\n        <ion-item>\n\n          <ion-label>Telefono</ion-label>\n\n          <ion-input type="number" [(ngModel)]="info_profile.telefono" formControlName="telefono"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="validaInfoProfile.get(\'telefono\').errors && validaInfoProfile.get(\'telefono\').dirty">\n\n          <p color="danger" ion-text *ngIf="validaInfoProfile.get(\'telefono\').hasError(\'required\')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>\n\n          <p color="danger" ion-text *ngIf="validaInfoProfile.get(\'telefono\').hasError(\'minLength\')"><ion-icon name="close-circle"></ion-icon> Ingresa un numero telefonico minimo de 10 digitos</p>\n\n          <p color="danger" ion-text *ngIf="validaInfoProfile.get(\'telefono\').hasError(\'maxLength\')"><ion-icon name="close-circle"></ion-icon> Ingresa un numero telefonico maximo de 10 digitos</p>\n\n        </ion-item>\n\n      <!--Bloque para ingresar la direccion-->\n\n        <ion-item>\n\n          <ion-label>Dirección</ion-label>\n\n          <ion-textarea  type="text" [(ngModel)]="info_profile.direccion" formControlName="direccion"></ion-textarea >\n\n        </ion-item>\n\n        <ion-item *ngIf="validaInfoProfile.get(\'direccion\').errors && validaInfoProfile.get(\'direccion\').dirty">\n\n          <p color="danger" ion-text *ngIf="validaInfoProfile.get(\'direccion\').hasError(\'required\')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>\n\n        </ion-item>\n\n      <!--Bloque para ingresar una referencia del cliente-->\n\n        <ion-item>\n\n          <ion-label>¿Alguna referencia?</ion-label>\n\n          <ion-textarea  type="text" [(ngModel)]="info_profile.referencia" formControlName="referencia"></ion-textarea >\n\n        </ion-item>\n\n        <ion-item *ngIf="validaInfoProfile.get(\'referencia\').errors && validaInfoProfile.get(\'referencia\').dirty">\n\n          <p color="danger" ion-text *ngIf="validaInfoProfile.get(\'referencia\').hasError(\'required\')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>\n\n        </ion-item>\n\n      <!--Bloque para iniciar el contador de la reputacion-->\n\n      <ion-input type="hidden" [(ngModel)]="info_profile.reputacion" formControlName="reputacion" value="0"></ion-input>\n\n      <!--Boton para guardar la info-->\n\n      <button ion-button block medium color="secondary"  class="btnlogin">GUARDAR</button>\n\n    </ion-list>\n\n  </form>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\pizzApp\src\pages\info-profile\info-profile.html"*/,
+        selector: 'page-info-profile',template:/*ion-inline-start:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\info-profile\info-profile.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Informacion de tu perfil</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n  <form [formGroup]="validaInfoProfile" (ngSubmit)="infoProfile()" novalidate>\n\n    <ion-list>\n\n      <!--Bloque para añadir una imagen a firebase y crear la info adicional-->\n\n        <ion-item>\n\n          <div class="divBeforeUpload" *ngIf="!imgprofile; else addedImg">\n\n            <div class="Divtitlefoto" >\n\n              <span>Mi</span> \n\n              <span>Foto de</span>\n\n              <span>Perfil</span>\n\n            </div>\n\n            <input type="file" class="uploadBtn" (change)="uploadImgProfile($event)">\n\n          </div>\n\n          <ng-template #addedImg>\n\n            <div class="divAfterUpload">\n\n              <div class="avatar" [style.background-image]="\'url(\' + imgprofile + \')\'"></div>\n\n            </div>\n\n          </ng-template>\n\n        </ion-item>   \n\n      <!--Bloque para ingresar el usuario-->\n\n        <ion-item>\n\n          <ion-label>Nombre:</ion-label>\n\n          <ion-input type="text" [(ngModel)]="info_profile.nombre" formControlName="nombre"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="validaInfoProfile.get(\'nombre\').errors && validaInfoProfile.get(\'nombre\').dirty">\n\n          <p color="danger" ion-text *ngIf="validaInfoProfile.get(\'nombre\').hasError(\'required\')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>\n\n          <p color="danger" ion-text *ngIf="validaInfoProfile.get(\'nombre\').hasError(\'pattern\')"><ion-icon name="close-circle"></ion-icon> solo se adapmite texto</p>\n\n        </ion-item>\n\n      <!--Bloque para ingresar el usuario-->\n\n        <ion-item>\n\n          <ion-label>Apellidos:</ion-label>\n\n          <ion-input type="text" [(ngModel)]="info_profile.ap_paterno" formControlName="ap_paterno"></ion-input>\n\n          <ion-input type="text" [(ngModel)]="info_profile.ap_materno" formControlName="ap_materno" class="a_materno"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="validaInfoProfile.get(\'ap_paterno\').errors && validaInfoProfile.get(\'ap_paterno\').dirty">\n\n          <p color="danger" ion-text *ngIf="validaInfoProfile.get(\'ap_paterno\').hasError(\'required\')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>\n\n          <p color="danger" ion-text *ngIf="validaInfoProfile.get(\'ap_paterno\').hasError(\'pattern\')"><ion-icon name="close-circle"></ion-icon> solo se adapmite texto</p>\n\n        </ion-item>\n\n        <ion-item *ngIf="validaInfoProfile.get(\'ap_materno\').errors && validaInfoProfile.get(\'ap_materno\').dirty">\n\n          <p color="danger" ion-text *ngIf="validaInfoProfile.get(\'ap_materno\').hasError(\'required\')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>\n\n          <p color="danger" ion-text *ngIf="validaInfoProfile.get(\'ap_materno\').hasError(\'pattern\')"><ion-icon name="close-circle"></ion-icon> solo se adapmite texto</p>\n\n        </ion-item>\n\n      <!--Bloque para ingresar el telefono-->\n\n        <ion-item>\n\n          <ion-label>Telefono</ion-label>\n\n          <ion-input type="number" [(ngModel)]="info_profile.telefono" formControlName="telefono"></ion-input>\n\n        </ion-item>\n\n        <ion-item *ngIf="validaInfoProfile.get(\'telefono\').errors && validaInfoProfile.get(\'telefono\').dirty">\n\n          <p color="danger" ion-text *ngIf="validaInfoProfile.get(\'telefono\').hasError(\'required\')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>\n\n          <p color="danger" ion-text *ngIf="validaInfoProfile.get(\'telefono\').hasError(\'minLength\')"><ion-icon name="close-circle"></ion-icon> Ingresa un numero telefonico minimo de 10 digitos</p>\n\n          <p color="danger" ion-text *ngIf="validaInfoProfile.get(\'telefono\').hasError(\'maxLength\')"><ion-icon name="close-circle"></ion-icon> Ingresa un numero telefonico maximo de 10 digitos</p>\n\n        </ion-item>\n\n      <!--Bloque para ingresar la direccion-->\n\n        <ion-item>\n\n          <ion-label>Dirección</ion-label>\n\n          <ion-textarea  type="text" [(ngModel)]="info_profile.direccion" formControlName="direccion"></ion-textarea >\n\n        </ion-item>\n\n        <ion-item *ngIf="validaInfoProfile.get(\'direccion\').errors && validaInfoProfile.get(\'direccion\').dirty">\n\n          <p color="danger" ion-text *ngIf="validaInfoProfile.get(\'direccion\').hasError(\'required\')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>\n\n        </ion-item>\n\n      <!--Bloque para ingresar una referencia del cliente-->\n\n        <ion-item>\n\n          <ion-label>¿Alguna referencia?</ion-label>\n\n          <ion-textarea  type="text" [(ngModel)]="info_profile.referencia" formControlName="referencia"></ion-textarea >\n\n        </ion-item>\n\n        <ion-item *ngIf="validaInfoProfile.get(\'referencia\').errors && validaInfoProfile.get(\'referencia\').dirty">\n\n          <p color="danger" ion-text *ngIf="validaInfoProfile.get(\'referencia\').hasError(\'required\')"><ion-icon name="close-circle"></ion-icon> campo obligatorio</p>\n\n        </ion-item>\n\n      <!--Bloque para iniciar el contador de la reputacion-->\n\n      <ion-input type="hidden" [(ngModel)]="info_profile.reputacion" formControlName="reputacion" value="0"></ion-input>\n\n      <!--Boton para guardar la info-->\n\n      <button ion-button block medium color="secondary"  class="btnlogin">GUARDAR</button>\n\n    </ion-list>\n\n  </form>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\info-profile\info-profile.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
@@ -2479,8 +2475,8 @@ InfoProfilePage = __decorate([
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -2551,8 +2547,8 @@ registerStorage(_app2.default);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -2567,7 +2563,7 @@ var _xhrio_network = __webpack_require__(439);
 /**
  * Factory-like class for creating XhrIo instances.
  */
-var XhrIoPool = /** @class */function () {
+var XhrIoPool = function () {
     function XhrIoPool() {}
     XhrIoPool.prototype.createXhrIo = function () {
         return new _xhrio_network.NetworkXhrIo();
@@ -2598,8 +2594,8 @@ exports.XhrIoPool = XhrIoPool;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -2635,7 +2631,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
  * We use this instead of goog.net.XhrIo because goog.net.XhrIo is hyuuuuge and
  * doesn't work in React Native on Android.
  */
-var NetworkXhrIo = /** @class */function () {
+var NetworkXhrIo = function () {
     function NetworkXhrIo() {
         var _this = this;
         this.sent_ = false;
@@ -2764,8 +2760,8 @@ exports.NetworkXhrIo = NetworkXhrIo;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -2821,8 +2817,8 @@ function jsonObjectOrNull(s) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -2902,8 +2898,8 @@ function sliceBlob(blob, start, end) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -2911,7 +2907,7 @@ Terms: https://firebase.google.com/terms/ */
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var RequestInfo = /** @class */function () {
+var RequestInfo = function () {
     function RequestInfo(url, method,
     /**
        * Returns the value with which to resolve the request's promise. Only called
@@ -2949,8 +2945,8 @@ exports.RequestInfo = RequestInfo;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -3018,7 +3014,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 /**
  * @fileoverview Defines types for interacting with blob transfer tasks.
  */
-var UploadTask = /** @class */function () {
+var UploadTask = function () {
     /**
      * @param ref The firebaseStorage.Reference object this task came
      *     from, untyped to avoid cyclic dependencies.
@@ -3532,8 +3528,8 @@ exports.UploadTask = UploadTask;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -3552,7 +3548,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 /**
  * @struct
  */
-var Observer = /** @class */function () {
+var Observer = function () {
     function Observer(nextOrObserver, opt_error, opt_complete) {
         var asFunctions = type.isFunction(nextOrObserver) || type.isDef(opt_error) || type.isDef(opt_complete);
         if (asFunctions) {
@@ -3592,8 +3588,8 @@ exports.Observer = Observer;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -3601,7 +3597,7 @@ Terms: https://firebase.google.com/terms/ */
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var UploadTaskSnapshot = /** @class */function () {
+var UploadTaskSnapshot = function () {
     function UploadTaskSnapshot(bytesTransferred, totalBytes, state, metadata, task, ref) {
         this.bytesTransferred = bytesTransferred;
         this.totalBytes = totalBytes;
@@ -3638,8 +3634,8 @@ exports.UploadTaskSnapshot = UploadTaskSnapshot;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -3697,8 +3693,8 @@ function async(f) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -3749,7 +3745,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-var Service = /** @class */function () {
+var Service = function () {
     function Service(app, pool, url) {
         this.bucket_ = null;
         function maker(authWrapper, loc) {
@@ -3849,7 +3845,7 @@ exports.Service = Service;
  * @struct
  */
 
-var ServiceInternals = /** @class */function () {
+var ServiceInternals = function () {
     function ServiceInternals(service) {
         this.service_ = service;
     }
@@ -3873,8 +3869,8 @@ exports.ServiceInternals = ServiceInternals;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -3914,7 +3910,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
  *     Untyped to avoid circular type dependencies.
  * @struct
  */
-var AuthWrapper = /** @class */function () {
+var AuthWrapper = function () {
     function AuthWrapper(app, maker, requestMaker, service, pool) {
         this.bucket_ = null;
         this.deleted_ = false;
@@ -4023,8 +4019,8 @@ exports.AuthWrapper = AuthWrapper;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -4045,7 +4041,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
  * @struct
  * @template T
  */
-var FailRequest = /** @class */function () {
+var FailRequest = function () {
     function FailRequest(error) {
         this.promise_ = promiseimpl.reject(error);
     }
@@ -4071,8 +4067,8 @@ exports.FailRequest = FailRequest;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -4110,7 +4106,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
-var RequestMap = /** @class */function () {
+var RequestMap = function () {
     function RequestMap() {
         this.map_ = {};
         this.id_ = constants.minSafeInteger;
@@ -4153,8 +4149,8 @@ exports.RequestMap = RequestMap;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
@@ -4211,7 +4207,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
  * @struct
  * @template T
  */
-var NetworkRequest = /** @class */function () {
+var NetworkRequest = function () {
     function NetworkRequest(url, method, headers, body, successCodes, additionalRetryCodes, callback, errorCallback, timeout, progressCallback, pool) {
         this.pendingXhr_ = null;
         this.backoffId_ = null;
@@ -4375,7 +4371,7 @@ var NetworkRequest = /** @class */function () {
  * @fileoverview Defines methods used to actually send HTTP requests from
  * abstract representations.
  */
-var RequestEndStatus = /** @class */function () {
+var RequestEndStatus = function () {
     function RequestEndStatus(wasSuccessCode, xhr, opt_canceled) {
         this.wasSuccessCode = wasSuccessCode;
         this.xhr = xhr;
@@ -4413,8 +4409,8 @@ function makeRequest(requestInfo, authToken, pool) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/*! @license Firebase v4.4.0
-Build: rev-380121f
+/*! @license Firebase v4.3.1
+Build: rev-b4fe95f
 Terms: https://firebase.google.com/terms/ */
 
 
