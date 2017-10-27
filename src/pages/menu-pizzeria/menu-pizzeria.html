@@ -11,14 +11,22 @@
 </ion-header>
 <ion-content >
   <ion-list>
-    <ion-item *ngFor="let producto of menuPizzas | async">
+    <ion-item *ngFor="let producto of menuPizzas | async; let i=index">
       <ion-thumbnail item-start>
         <img src="assets/imgs/pizza-demo.jpg">
       </ion-thumbnail>
       <h1>{{producto.nombre}}</h1>
       <h2>${{producto.precio}}</h2>
       <p>{{producto.ingredientes}}</p>
-      <button ion-button outline  color="calltoaction" (click)="addToCart(producto.nombre,producto.precio)">Agregar al carrito <ion-icon name="cart"></ion-icon></button>
+      <div class="cantidadPizzas">
+        <p class="titleCantidad">CANTIDAD:</p>
+        <div class="totalPizzas" (tap)="menosPizza($event)"><ion-icon name="remove-circle" class="menosPizza"></ion-icon></div>
+          <p class="cantidadP">{{cantidadPizzas}}</p>
+        <div class="totalPizzas" (tap)="masPizza($event)"><ion-icon name="add-circle" class="masPizza"></ion-icon></div>
+      </div>
+      
+      <button ion-button outline  color="calltoaction" id="hiddeitemPizza{{i}}" (click)="addToCart(producto.nombre,producto.precio,i)">Agregar al carrito <ion-icon name="cart"></ion-icon></button>
+      <button ion-button outline  color="calltoaction" id="showitemPizza{{i}}"   class="showAdded" disabled>Agregado al carrito<ion-icon name="checkmark-circle"></ion-icon></button>
     </ion-item>   
   </ion-list>
 </ion-content>

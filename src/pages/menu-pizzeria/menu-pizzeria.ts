@@ -11,6 +11,7 @@ import {localStorageCRUD} from '../../servicios/localstoragePedido';
 export class MenuPizzeriaPage {
   menuPizzas:FirebaseListObservable<PizzeriasItems[]>;
   nombrePizzeria:string;
+  cantidadPizzas:number=1;
   //menuPizzas={} as PizzeriasItems;
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController,private database:AngularFireDatabase) {
     const pizzeriaID =this.navParams.get('pizzeriaID'); 
@@ -20,7 +21,7 @@ export class MenuPizzeriaPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MenuPizzeriaPage');
   }
-  addToCart(nombre,precio){
+  addToCart(nombre,precio,itemPizza){
     //Instancia para verificar que no existan una pizzeria con ordenes
     let checkPizzeria=new localStorageCRUD();
     //Añade el item al carrito
@@ -29,12 +30,16 @@ export class MenuPizzeriaPage {
     if(checkPizzeria.getNamePizzeriaLocalStorage()==null){
         console.log("no existe la pizzeria, la vamos a crear en LocalStorage");
         checkPizzeria.setNamePizzeriaLocalStorage(this.nombrePizzeria);
+        document.getElementById("hiddeitemPizza"+itemPizza).classList.add('ocultarbtn');
+        //document.getElementById("demo1").classList.remove('MyClass');
         nuevoPedido.save();
     }else{
         console.log(checkPizzeria.getNamePizzeriaLocalStorage());
         if(checkPizzeria.getNamePizzeriaLocalStorage()!=this.nombrePizzeria){
             this.showAlert(checkPizzeria.getNamePizzeriaLocalStorage());
         }else{
+          document.getElementById("hiddeitemPizza"+itemPizza).classList.add('ocultarbtn');
+          document.getElementById("showitemPizza"+itemPizza).classList.remove('showAdded');
           nuevoPedido.save();
         }
     }   
@@ -46,5 +51,11 @@ export class MenuPizzeriaPage {
       buttons: ['OK']
     });
     alert.present();
+  }
+  masPizza(e) {
+    this.cantidadPizzas++
+  }
+  menosPizza(e) {
+    this.cantidadPizzas--
   }
 }

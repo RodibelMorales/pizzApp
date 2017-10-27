@@ -27679,6 +27679,42 @@ page-menu-pizzeria ion-label {
   white-space: normal;
 }
 
+page-menu-pizzeria .ocultarbtn {
+  display: none;
+}
+
+page-menu-pizzeria .showAdded {
+  display: none;
+}
+
+page-menu-pizzeria .cantidadPizzas {
+  display: block;
+  width: 100%;
+}
+
+page-menu-pizzeria .totalPizzas {
+  display: inline-block;
+}
+
+page-menu-pizzeria .cantidadP {
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-weight: bold;
+}
+
+page-menu-pizzeria .masPizza {
+  color: #388E3C;
+}
+
+page-menu-pizzeria .menosPizza {
+  color: #C62828;
+}
+
+page-menu-pizzeria p.titleCantidad {
+  font-weight: bold;
+}
+
 page-perfil .card h2 {
   margin: 2px 0;
   font-size: 1.6rem;

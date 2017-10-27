@@ -16,5 +16,32 @@ page-menu-pizzeria {
         text-overflow: ellipsis;
         white-space: normal;
     }
-
+    .ocultarbtn{
+        display: none;
+    }
+    .showAdded{
+        display: none;
+    }
+    .cantidadPizzas{
+        display: block;
+        width: 100%;
+    }
+    .totalPizzas{
+        display: inline-block;
+    }
+    .cantidadP {
+        display: inline-block;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-weight: bold;
+    }
+    .masPizza{
+        color: #388E3C;
+    }
+    .menosPizza{
+        color: #C62828;       
+    }
+    p.titleCantidad {
+        font-weight: bold;
+    }        
 }
