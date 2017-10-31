@@ -43,5 +43,56 @@ page-menu-pizzeria {
     }
     p.titleCantidad {
         font-weight: bold;
-    }        
+        display: inline-block;
+        position: relative;
+    }
+    
+    .input {
+        width: 80px;
+        display: inline-block;
+        position: Relative;
+        border: 1px solid grey;
+        border-radius: 3px;
+        overflow: hidden;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      .input:before,
+      .input:after {
+        background: white;
+        right: 0px;
+        width: 30px;
+        height: 20%;
+        position: absolute;
+        pointer-events: none;
+      }
+      .input:before {
+        content: '';
+        bottom: 55%;
+        height:15px;
+        background: url(../assets/imgs/up-arrow.svg) no-repeat white;
+        background-size: 12px;
+        background-position: center;
+      }
+      .input:after {
+        content: '';
+        top: 50%;
+        height:15px;
+        background: url(../assets/imgs/up-arrow.svg) no-repeat white;
+        background-size: 12px;
+        transform: rotate(180deg);
+        background-position: center;
+      }
+      input {
+        height: 35px;
+        font-size: 12pt;
+        outline: 0;
+        border: 0;
+        padding-left: 15px;
+      }
+    .hideCantidadPizzas{display:none;}
 }

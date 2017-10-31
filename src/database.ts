@@ -4,7 +4,7 @@ export class carritoCompras extends Dexie{
     constructor(){
         super("pizzApp");
         this.version(1).stores({
-            pedidos:"++id,pizzeriaKEY,nombreProducto,imagen,ingredientes,precio,promo"
+            pedidos:"++id,pizzeriaKEY,nombreProducto,imagen,ingredientes,precio,promo,idCSS"
         });
         this.pedidos.mapToClass(carritoPizzas);
     }
@@ -19,6 +19,7 @@ export interface pizzeriaCarritoItems{
     imagen:string;
     precio:number;
     promo:number;
+    idCSS:string;
 }
 export class carritoPizzas implements pizzeriaCarritoItems{
     id?:number;
@@ -27,13 +28,14 @@ export class carritoPizzas implements pizzeriaCarritoItems{
     imagen:string;
     precio:number;
     promo:number;
-    
-    constructor(pizzeriaKEY?:string,nombreProducto?:string,imagen?:string,precio?:number,promo?:number){
+    idCSS:string;
+    constructor(pizzeriaKEY?:string,nombreProducto?:string,imagen?:string,precio?:number,promo?:number,idCSS?:number){
         this.pizzeriaKEY=pizzeriaKEY;
         this.nombreProducto=nombreProducto;
         this.imagen=imagen;
         this.precio=precio;
         this.promo=promo;
+        this.idCSS=idCSS;
     }
     //almacena la informacion en la DB
     save(){

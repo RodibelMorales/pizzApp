@@ -18,13 +18,15 @@
       <h1>{{producto.nombre}}</h1>
       <h2>${{producto.precio}}</h2>
       <p>{{producto.ingredientes}}</p>
-      <div class="cantidadPizzas">
+      <div class="cantidadPizzas" id="showCantidad{{i}}">
         <p class="titleCantidad">CANTIDAD:</p>
-        <div class="totalPizzas" (tap)="menosPizza($event)"><ion-icon name="remove-circle" class="menosPizza"></ion-icon></div>
-          <p class="cantidadP">{{cantidadPizzas}}</p>
-        <div class="totalPizzas" (tap)="masPizza($event)"><ion-icon name="add-circle" class="masPizza"></ion-icon></div>
+        <div class="totalPizzas" (tap)="menosPizza($event,i)"><ion-icon name="remove-circle" class="menosPizza"></ion-icon></div>
+          <p class="cantidadP">
+            <span id="total{{i}}">1</span>
+            <span id="input{{i}}"></span>
+          </p>
+        <div class="totalPizzas" (tap)="masPizza($event,i)"><ion-icon name="add-circle" class="masPizza"></ion-icon></div>
       </div>
-      
       <button ion-button outline  color="calltoaction" id="hiddeitemPizza{{i}}" (click)="addToCart(producto.nombre,producto.precio,i)">Agregar al carrito <ion-icon name="cart"></ion-icon></button>
       <button ion-button outline  color="calltoaction" id="showitemPizza{{i}}"   class="showAdded" disabled>Agregado al carrito<ion-icon name="checkmark-circle"></ion-icon></button>
     </ion-item>   

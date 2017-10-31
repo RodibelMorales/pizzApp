@@ -408,7 +408,8 @@ var MenuPizzeriaPage = (function () {
             console.log("no existe la pizzeria, la vamos a crear en LocalStorage");
             checkPizzeria.setNamePizzeriaLocalStorage(this.nombrePizzeria);
             document.getElementById("hiddeitemPizza" + itemPizza).classList.add('ocultarbtn');
-            //document.getElementById("demo1").classList.remove('MyClass');
+            document.getElementById("showCantidad" + itemPizza).classList.add("hideCantidadPizzas");
+            var x = parseFloat(document.getElementById("total" + itemPizza).value);
             nuevoPedido.save();
         }
         else {
@@ -418,7 +419,9 @@ var MenuPizzeriaPage = (function () {
             }
             else {
                 document.getElementById("hiddeitemPizza" + itemPizza).classList.add('ocultarbtn');
+                document.getElementById("showCantidad" + itemPizza).classList.add("hideCantidadPizzas");
                 document.getElementById("showitemPizza" + itemPizza).classList.remove('showAdded');
+                var x = parseFloat(document.getElementById("totalpizzas" + itemPizza).value);
                 nuevoPedido.save();
             }
         }
@@ -431,17 +434,21 @@ var MenuPizzeriaPage = (function () {
         });
         alert.present();
     };
-    MenuPizzeriaPage.prototype.masPizza = function (e) {
+    MenuPizzeriaPage.prototype.masPizza = function (e, id) {
         this.cantidadPizzas++;
+        document.getElementById("total" + id).innerHTML = this.cantidadPizzas;
+        document.getElementById("input" + id).innerHTML = "<input type='hidden' id='totalpizzas" + id + "' value='" + this.cantidadPizzas + "'>";
     };
-    MenuPizzeriaPage.prototype.menosPizza = function (e) {
+    MenuPizzeriaPage.prototype.menosPizza = function (e, id) {
         this.cantidadPizzas--;
+        document.getElementById("total" + id).innerHTML = this.cantidadPizzas;
+        document.getElementById("input" + id).innerHTML = "<input type='hidden' id='totalpizzas" + id + "' value='" + this.cantidadPizzas + "'>";
     };
     return MenuPizzeriaPage;
 }());
 MenuPizzeriaPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-menu-pizzeria',template:/*ion-inline-start:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\menu-pizzeria\menu-pizzeria.html"*/'<!--\n\n  Generated template for the MenuPizzeriaPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>{{nombrePizzeria}}</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content >\n\n  <ion-list>\n\n    <ion-item *ngFor="let producto of menuPizzas | async; let i=index">\n\n      <ion-thumbnail item-start>\n\n        <img src="assets/imgs/pizza-demo.jpg">\n\n      </ion-thumbnail>\n\n      <h1>{{producto.nombre}}</h1>\n\n      <h2>${{producto.precio}}</h2>\n\n      <p>{{producto.ingredientes}}</p>\n\n      <div class="cantidadPizzas">\n\n        <p class="titleCantidad">CANTIDAD:</p>\n\n        <div class="totalPizzas" (tap)="menosPizza($event)"><ion-icon name="remove-circle" class="menosPizza"></ion-icon></div>\n\n          <p class="cantidadP">{{cantidadPizzas}}</p>\n\n        <div class="totalPizzas" (tap)="masPizza($event)"><ion-icon name="add-circle" class="masPizza"></ion-icon></div>\n\n      </div>\n\n      \n\n      <button ion-button outline  color="calltoaction" id="hiddeitemPizza{{i}}" (click)="addToCart(producto.nombre,producto.precio,i)">Agregar al carrito <ion-icon name="cart"></ion-icon></button>\n\n      <button ion-button outline  color="calltoaction" id="showitemPizza{{i}}"   class="showAdded" disabled>Agregado al carrito<ion-icon name="checkmark-circle"></ion-icon></button>\n\n    </ion-item>   \n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\menu-pizzeria\menu-pizzeria.html"*/,
+        selector: 'page-menu-pizzeria',template:/*ion-inline-start:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\menu-pizzeria\menu-pizzeria.html"*/'<!--\n\n  Generated template for the MenuPizzeriaPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>{{nombrePizzeria}}</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content >\n\n  <ion-list>\n\n    <ion-item *ngFor="let producto of menuPizzas | async; let i=index">\n\n      <ion-thumbnail item-start>\n\n        <img src="assets/imgs/pizza-demo.jpg">\n\n      </ion-thumbnail>\n\n      <h1>{{producto.nombre}}</h1>\n\n      <h2>${{producto.precio}}</h2>\n\n      <p>{{producto.ingredientes}}</p>\n\n      <div class="cantidadPizzas" id="showCantidad{{i}}">\n\n        <p class="titleCantidad">CANTIDAD:</p>\n\n        <div class="totalPizzas" (tap)="menosPizza($event,i)"><ion-icon name="remove-circle" class="menosPizza"></ion-icon></div>\n\n          <p class="cantidadP">\n\n            <span id="total{{i}}">1</span>\n\n            <span id="input{{i}}"></span>\n\n          </p>\n\n        <div class="totalPizzas" (tap)="masPizza($event,i)"><ion-icon name="add-circle" class="masPizza"></ion-icon></div>\n\n      </div>\n\n      <button ion-button outline  color="calltoaction" id="hiddeitemPizza{{i}}" (click)="addToCart(producto.nombre,producto.precio,i)">Agregar al carrito <ion-icon name="cart"></ion-icon></button>\n\n      <button ion-button outline  color="calltoaction" id="showitemPizza{{i}}"   class="showAdded" disabled>Agregado al carrito<ion-icon name="checkmark-circle"></ion-icon></button>\n\n    </ion-item>   \n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\menu-pizzeria\menu-pizzeria.html"*/,
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _d || Object])
 ], MenuPizzeriaPage);
@@ -475,7 +482,7 @@ var carritoCompras = (function (_super) {
     function carritoCompras() {
         var _this = _super.call(this, "pizzApp") || this;
         _this.version(1).stores({
-            pedidos: "++id,pizzeriaKEY,nombreProducto,imagen,ingredientes,precio,promo"
+            pedidos: "++id,pizzeriaKEY,nombreProducto,imagen,ingredientes,precio,promo,idCSS"
         });
         _this.pedidos.mapToClass(carritoPizzas);
         return _this;
@@ -484,12 +491,13 @@ var carritoCompras = (function (_super) {
 }(__WEBPACK_IMPORTED_MODULE_0_dexie__["a" /* default */]));
 
 var carritoPizzas = (function () {
-    function carritoPizzas(pizzeriaKEY, nombreProducto, imagen, precio, promo) {
+    function carritoPizzas(pizzeriaKEY, nombreProducto, imagen, precio, promo, idCSS) {
         this.pizzeriaKEY = pizzeriaKEY;
         this.nombreProducto = nombreProducto;
         this.imagen = imagen;
         this.precio = precio;
         this.promo = promo;
+        this.idCSS = idCSS;
     }
     //almacena la informacion en la DB
     carritoPizzas.prototype.save = function () {
@@ -684,7 +692,7 @@ var AboutPage = (function () {
 }());
 AboutPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-about',template:/*ion-inline-start:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\about\about.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Mi pedido\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-list>\n\n    <ion-item *ngIf="pedidos == \'\' ">\n\n        <div class="msjNoItems">\n\n          <h1 class="sinItems"> <ion-icon name="sad"></ion-icon> Aún no pides una pizza</h1>\n\n        </div>\n\n    </ion-item>\n\n    <ion-item *ngFor="let pedido of pedidos">\n\n      <ion-avatar item-start>\n\n        <img src="assets/imgs/pizza-demo.jpg">\n\n      </ion-avatar>\n\n      <h1>{{pedido.nombreProducto}}</h1>\n\n      <h2>${{pedido.precio}}</h2>\n\n      <button class="btnremove" (click)="deleteItem(pedido.id)"><ion-icon name="remove-circle" class="removeItem" (clik)="deleteItem(pedido.id)"></ion-icon></button>\n\n    </ion-item>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\about\about.html"*/
+        selector: 'page-about',template:/*ion-inline-start:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\about\about.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Mi pedido\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-list>\n\n    <ion-item *ngIf="pedidos == \'\' ">\n\n        <div class="msjNoItems">\n\n          <h1 class="sinItems"> <ion-icon name="sad"></ion-icon> Aún no pides una pizza</h1>\n\n        </div>\n\n    </ion-item>\n\n    <ion-item *ngFor="let pedido of pedidos">\n\n      <ion-avatar item-start>\n\n        <img src="assets/imgs/pizza-demo.jpg">\n\n      </ion-avatar>\n\n      <h1>{{pedido.nombreProducto}}</h1>\n\n      <h2>${{pedido.precio}}</h2>\n\n      <button class="btnremove" (click)="deleteItem(pedido.id)"><ion-icon name="remove-circle" class="removeItem"></ion-icon></button>\n\n    </ion-item>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\xampp\htdocs\desarrollos\pizzApp\src\pages\about\about.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]])
 ], AboutPage);

@@ -11,7 +11,7 @@ import {localStorageCRUD} from '../../servicios/localstoragePedido';
 export class MenuPizzeriaPage {
   menuPizzas:FirebaseListObservable<PizzeriasItems[]>;
   nombrePizzeria:string;
-  cantidadPizzas:number=1;
+  cantidadPizzas:any=1;
   //menuPizzas={} as PizzeriasItems;
   constructor(public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController,private database:AngularFireDatabase) {
     const pizzeriaID =this.navParams.get('pizzeriaID'); 
@@ -31,7 +31,8 @@ export class MenuPizzeriaPage {
         console.log("no existe la pizzeria, la vamos a crear en LocalStorage");
         checkPizzeria.setNamePizzeriaLocalStorage(this.nombrePizzeria);
         document.getElementById("hiddeitemPizza"+itemPizza).classList.add('ocultarbtn');
-        //document.getElementById("demo1").classList.remove('MyClass');
+        document.getElementById("showCantidad"+itemPizza).classList.add("hideCantidadPizzas");
+        var x=parseFloat((<HTMLInputElement>document.getElementById("total"+itemPizza)).value);
         nuevoPedido.save();
     }else{
         console.log(checkPizzeria.getNamePizzeriaLocalStorage());
@@ -39,7 +40,9 @@ export class MenuPizzeriaPage {
             this.showAlert(checkPizzeria.getNamePizzeriaLocalStorage());
         }else{
           document.getElementById("hiddeitemPizza"+itemPizza).classList.add('ocultarbtn');
+          document.getElementById("showCantidad"+itemPizza).classList.add("hideCantidadPizzas");
           document.getElementById("showitemPizza"+itemPizza).classList.remove('showAdded');
+          var x=parseFloat((<HTMLInputElement>document.getElementById("totalpizzas"+itemPizza)).value);          
           nuevoPedido.save();
         }
     }   
@@ -52,10 +55,14 @@ export class MenuPizzeriaPage {
     });
     alert.present();
   }
-  masPizza(e) {
+  masPizza(e,id) {
     this.cantidadPizzas++
+    document.getElementById("total"+id).innerHTML =this.cantidadPizzas;
+    document.getElementById("input"+id).innerHTML ="<input type='hidden' id='totalpizzas"+id+"' value='"+this.cantidadPizzas+"'>";
   }
-  menosPizza(e) {
+  menosPizza(e,id) {
     this.cantidadPizzas--
+    document.getElementById("total"+id).innerHTML =this.cantidadPizzas;
+    document.getElementById("input"+id).innerHTML ="<input type='hidden' id='totalpizzas"+id+"' value='"+this.cantidadPizzas+"'>";
   }
 }
